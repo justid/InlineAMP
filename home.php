@@ -11,7 +11,7 @@
 <?php load_css("css/footer", 'common') ?>
         </style>
     </head>
-    <body>
+    <body <?php body_class(); ?>>
         <?php
         echo get_theme_mod('body_js', '');
         ?>
@@ -28,7 +28,7 @@
             <div class="main-container">
                 <div class="post-list">
                 <?php while (have_posts()) : the_post(); ?>
-                    <article class="list-box">
+                    <article <?php post_class('list-box'); ?>>
                     <?php if ($thumb = my_post_thumbnail()): ?>
                     <a href="<?php the_permalink() ?>" class="title-img">
                         <amp-img class="contain"

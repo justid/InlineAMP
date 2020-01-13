@@ -1,11 +1,21 @@
 <?php
+if ( ! isset( $content_width ) ) $content_width = 1680;
 
 function theme_support() {
+	remove_all_actions('wp_head');
+	add_action( 'wp_head', '_wp_render_title_tag', 1 );
+
 	add_theme_support('post-thumbnails');
 	add_theme_support('automatic-feed-links');
+	add_theme_support( 'title-tag' );
 }
 
 add_action( 'after_setup_theme', 'theme_support' );
+
+function my_admin_bar_init() {
+    remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('admin_bar_init', 'my_admin_bar_init');
 
 function my_post_thumbnail() {
     $img_url = wp_get_attachment_url(get_post_thumbnail_id());
@@ -14,6 +24,10 @@ function my_post_thumbnail() {
 }
 
 // Customizer
+function do_nothing($str) {
+	return $str;
+}
+
 function my_customize_register($wp_customize) {
     // remove default section
     $wp_customize->remove_section('title_tagline');
@@ -26,15 +40,18 @@ function my_customize_register($wp_customize) {
 
     $wp_customize->add_setting( 'blog_title' , array(
         'default'   => get_bloginfo('name'),
-        'transport' => 'refresh',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
     ) );
     $wp_customize->add_setting( 'main_tagline' , array(
         'default'   => 'Free the Internet',
-        'transport' => 'refresh',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
     ) );
     $wp_customize->add_setting( 'sub_tagline' , array(
         'default'   => 'Across the Great Wall we can reach every corner in the world',
-        'transport' => 'refresh',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
     ) );
     $wp_customize->add_setting( 'favicon' , array(
         'default'   => '',
@@ -50,12 +67,14 @@ function my_customize_register($wp_customize) {
     ) );
     $wp_customize->add_setting( 'header_js' , array(
         'default'   => '',
-        'transport' => 'refresh',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
     ) );
 
     $wp_customize->add_setting( 'body_js' , array(
         'default'   => '',
-        'transport' => 'refresh',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
     ) );
 
     $wp_customize->add_control(
