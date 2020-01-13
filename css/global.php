@@ -51,11 +51,8 @@ if ($styles || is_customize_preview()) {
 
 if (is_user_logged_in()){
 	echo '
-	body{
-		padding-top: 32px;
-	}
 	@media only screen and (max-width: 640px) {
-		body,#commonTop #menu-top-menu {
+		#commonTop #menu-top-menu {
 			padding-top: 46px;
 		}
 		body>#header-menu-button {

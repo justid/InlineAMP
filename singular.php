@@ -58,7 +58,7 @@
                             if (post_password_required()) {
                                 echo post_password();
                             } else {
-                                echo html2amp(apply_filters('the_content', get_the_content())); 
+                                echo apply_filters('the_content', get_the_content()); 
                             }
                         ?>
                         <?php

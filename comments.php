@@ -5,7 +5,7 @@
         <?php if (have_comments()) : ?>
             <h2><?php comments_number(__('no responses','inline-amp'), __('one response','inline-amp'), __('% responses','inline-amp')); ?></h2>
             <ul>
-                <?php echo html2amp(wp_list_comments(['echo'=>false]));?>
+                <?php echo wp_list_comments(['echo'=>false]);?>
             </ul>
             <?php if (get_comment_pages_count() > 1): ?>
                 <nav class="nav-links">

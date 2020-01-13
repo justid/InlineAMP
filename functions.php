@@ -10,6 +10,7 @@ function theme_support() {
 	add_theme_support( 'title-tag' );
 }
 
+
 add_action( 'after_setup_theme', 'theme_support' );
 
 function my_admin_bar_init() {
@@ -304,7 +305,6 @@ class my_profile extends WP_Widget {
         $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','inline-amp');
 
         $text = apply_filters( 'widget_text_content', $text, $instance, $this );
-        $text = html2amp($text);
         
         echo $args['before_widget'];
         
@@ -428,6 +428,8 @@ class my_profile extends WP_Widget {
 }
 
 function my_sidebar_registration() {
+	global $wp_widget_factory; 
+
     unregister_widget('WP_Widget_Media_Audio');   // remove audio
     unregister_widget('WP_Widget_Media_Video');   // remove video
     unregister_widget('WP_Widget_Media_Image');   // remove image
@@ -450,19 +452,13 @@ function my_sidebar_registration() {
         'after_widget' => '</aside>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>'
-    ));
+	));
+	// remove hard core css
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 }
 
 add_action( 'widgets_init', 'my_sidebar_registration' );
 
-require_once __DIR__ . '/lib/vendor/autoload.php';
-
-function html2amp($html='') {
-    $amp = new Lullabot\AMP\AMP();
-    $amp->loadHtml($html);
-    
-    return $amp->convertToAmpHtml();
-}
 
 // comments form
 remove_action( 'comment_form', 'wp_comment_form_unfiltered_html_nonce' );
@@ -569,14 +565,7 @@ add_action('wp_ajax_nopriv_amp_comment_submit', 'amp_comment_submit');
 // load minify css
 function load_css($slug, $name = null)
 {
-    ob_start();
     get_template_part($slug, $name);
-    $display = ob_get_clean();
-
-    $minifier = new MatthiasMullie\Minify\CSS();
-    $minifier->add($display);
-
-    echo $minifier->minify();
 }
 
 // for password protected posts

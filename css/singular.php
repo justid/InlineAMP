@@ -141,8 +141,12 @@
 
     amp-img,amp-audio,amp-video
     {
-        max-width: 100%;
-    }
+		max-width: 100%;
+	}
+	
+	.blocks-gallery-item figure amp-img {
+		display: flex;
+	}
 
     .content ul,.content ol {
         padding-left: 1.4881vw;

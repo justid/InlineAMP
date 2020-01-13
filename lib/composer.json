@@ -1,8 +1,0 @@
-{
-    "name": "theme/lib",
-    "type": "library",
-    "require": {
-        "lullabot/amp": "^1.1",
-        "matthiasmullie/minify": "^1.3"
-    }
-}
