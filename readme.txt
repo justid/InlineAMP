@@ -1,6 +1,6 @@
 Theme Name: Inline AMP
 Text Domain: inline-amp
-Description: InlineAMP has a traditional two column layout, it's designed for easy-use,friendly-admin, and all settings goes to theme customizer. we used a lot of modern tech such as flex layer, Pure CSS design. Our theme page was fully support AMP tech, which has much better SEO experience.
+Description:  InlineAMP has a traditional two-column layout, it's designed for easy-use,friendly-admin, and all settings go to the theme customizer. we used a lot of modern tech such as flex layer, Pure CSS design. Our theme page was fully supported AMP spec, which has much better SEO experiences. 
 Tags: blog,two-columns,right-sidebar,sticky-post,theme-options
 Author: Hhacker
 Author URI: https://hhacker.com
