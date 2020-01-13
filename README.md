@@ -11,6 +11,14 @@ It's welcome to submit issues or make pull request, we will response as soon as 
 
 ![theme features](https://github.com/justid/InlineAMP/raw/master/docs/features.png)
 
+## Requires
+
+1. PHP 7 or later
+
+2. Wordpress 5.3
+
+3. [AMP plugin](https://wordpress.org/plugins/amp/)
+
 ## TODO
 
 Nothing there.
@@ -21,13 +29,11 @@ Nothing there.
 
 2. Pure CSS
 
-3. Plugin Free
+3. SEO Optimized
 
-4. SEO Optimized
+4. Mobile Friendly
 
-5. Mobile Friendly
-
-6. Blog Style
+5. Blog Style
 
 ## License
 

@@ -10,3 +10,8 @@ Author URI: https://hhacker.com
 Theme URI: https://github.com/justid/InlineAMP
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+Requires: 
+1. PHP 7 or later
+2. Wordpress 5.3
+3. [AMP plugin](https://wordpress.org/plugins/amp/)
