@@ -174,7 +174,7 @@ class FileInputStreamTest extends \Masterminds\HTML5\Tests\TestCase
         // This should scan to the end of the file.
         $text = "<head>
     <meta charset=\"utf-8\">
-    <title>Test</title>
+    
   </head>
   <body>
     <p>This is a test.</p>

@@ -137,7 +137,6 @@ class DOMTreeBuilderTest extends \Masterminds\HTML5\Tests\TestCase
         $html = "<!doctype html>
         <html>
             <head>
-                <Title>Hello, world!</TitlE>
             </head>
             <body>TheBody<script>foo</script></body>
         </html>";
@@ -199,7 +198,7 @@ class DOMTreeBuilderTest extends \Masterminds\HTML5\Tests\TestCase
 
     public function testElements()
     {
-        $html = "<!DOCTYPE html><html><head><title></title></head><body></body></html>";
+        $html = "<!DOCTYPE html><html><head></head><body></body></html>";
         $doc = $this->parse($html);
         $root = $doc->documentElement;
 
@@ -335,7 +334,7 @@ class DOMTreeBuilderTest extends \Masterminds\HTML5\Tests\TestCase
     {
         $html = "<!DOCTYPE html>
       <html>
-      <head><title></title></head>
+      <head></head>
       <body id='a' class='b c'></body>
       </html>";
         $doc = $this->parse($html);
@@ -398,7 +397,7 @@ class DOMTreeBuilderTest extends \Masterminds\HTML5\Tests\TestCase
 
     public function testMissingHtmlTag()
     {
-        $html = "<!DOCTYPE html><title>test</title>";
+        $html = "<!DOCTYPE html>";
         $doc = $this->parse($html);
 
         $this->assertEquals('html', $doc->documentElement->tagName);
@@ -621,7 +620,7 @@ class DOMTreeBuilderTest extends \Masterminds\HTML5\Tests\TestCase
 <!DOCTYPE html>
 <html>
     <head>
-        <title>testSelectGroupedOptions</title>
+        
     </head>
     <body>
         <select>
@@ -649,7 +648,7 @@ EOM;
 <!DOCTYPE html>
 <html>
     <head>
-        <title>testVoidTag</title>
+        
         <meta>
         <meta>
     </head>
@@ -668,7 +667,7 @@ EOM;
 <!DOCTYPE html>
 <html>
     <head>
-        <title>testIllegalSelfClosingTag</title>
+        
     </head>
     <body>
         <div /><span>Hello, World!</span></div>
@@ -685,7 +684,7 @@ EOM;
 <!DOCTYPE html>
 <html>
     <head>
-        <title>testIllegalSelfClosingTag</title>
+        
     </head>
     <body>
     <p>

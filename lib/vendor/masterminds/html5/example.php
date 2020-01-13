@@ -7,7 +7,6 @@ use Masterminds\HTML5;
 $html = <<< 'HERE'
   <html>
   <head>
-  <title>TEST</title>
   <script language="javascript">
   if (2 > 1) { alert("Math wins."); }
   </script>

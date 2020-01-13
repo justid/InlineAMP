@@ -132,7 +132,6 @@ class QueryPath {
   <html lang="en">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Untitled</title>
   </head>
   <body></body>
   </html>';
@@ -140,7 +139,6 @@ class QueryPath {
   const HTML5_STUB = '<!DOCTYPE html>
     <html>
     <head>
-    <title>Untitled</title>
     </head>
     <body></body>
     </html>';
@@ -166,7 +164,6 @@ class QueryPath {
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Untitled</title>
   </head>
   <body></body>
   </html>';

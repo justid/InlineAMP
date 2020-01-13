@@ -12,7 +12,6 @@ class TraverserTest extends \Masterminds\HTML5\Tests\TestCase
     <html lang="en">
       <head>
         <meta charset="utf-8">
-        <title>Test</title>
       </head>
       <body>
         <p>This is a test.</p>

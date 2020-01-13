@@ -17,7 +17,7 @@ use Masterminds\HTML5\Parser\DOMTreeBuilder;
 class TreeBuildingRulesTest extends \Masterminds\HTML5\Tests\TestCase
 {
 
-    const HTML_STUB = '<!DOCTYPE html><html><head><title>test</title></head><body>%s</body></html>';
+    const HTML_STUB = '<!DOCTYPE html><html><head></head><body>%s</body></html>';
 
     /**
      * Convenience function for parsing.

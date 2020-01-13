@@ -25,7 +25,6 @@ $rss_stub ='<?xml version="1.0"?>
 <rss version="2.0" 
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-   <title></title>
    <link></link>
    <description></description>
    <language>en</language>
@@ -37,7 +36,6 @@ $rss_stub ='<?xml version="1.0"?>
 // This is the stub RSS element.
 $rss_item_stub = '<?xml version="1.0"?>
 <item>
-  <title>Untitled</title>
   <link></link>
   <description>
   </description>

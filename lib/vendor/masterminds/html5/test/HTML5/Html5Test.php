@@ -34,7 +34,6 @@ class Html5Test extends TestCase
         $html = "<!DOCTYPE html>
                     <html>
                         <head>
-                            <title>foo</title>
                         </head>
                         <body>
                             <svg>

@@ -22,7 +22,6 @@ class QueryPathEventHandlerTest extends TestCase {
   var $xml = '<?xml version="1.0" ?>
   <html>
   <head>
-    <title>This is the title</title>
   </head>
   <body>
     <div id="one">

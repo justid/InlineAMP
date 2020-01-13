@@ -21,7 +21,6 @@ $db->exec('CREATE TABLE IF NOT EXISTS qpdb_article (title, author, body)');
 // Here's our sample article:
 $article = '<?xml version="1.0"?>
 <article>
-  <title>Use QueryPath for Fun and Profit</title>
   <author>
     <first>Matt</first>
     <last>Butcher</last>

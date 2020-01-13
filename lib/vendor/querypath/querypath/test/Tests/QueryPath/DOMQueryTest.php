@@ -1051,7 +1051,7 @@ class DOMQueryTest extends TestCase {
     $html = '<b>test</b>';
     $this->assertEquals($html, $qp->html($html)->find('b')->html());
 
-    $html = '<html><head><title>foo</title></head><body>bar</body></html>';
+    $html = '<html><head></head><body>bar</body></html>';
     // We expect a DocType to be prepended:
     $this->assertEquals('<!DOCTYPE', substr(qp($html)->html(), 0, 9));
 
@@ -1100,7 +1100,7 @@ class DOMQueryTest extends TestCase {
     $this->assertEquals('Test<p>Again</p>', qp($html,'#me')->innerXHTML());
 
     // Regression for issue #10: Tags should not be unary (e.g. we want <script></script>, not <script/>)
-    $xml = '<html><head><title>foo</title></head><body><div id="me">Test<p>Again<br/></p></div></body></html>';
+    $xml = '<html><head></head><body><div id="me">Test<p>Again<br/></p></div></body></html>';
     // Look for a closing </br> tag
     $regex = '/<\/br>/';
     $this->assertRegExp($regex, qp($xml, '#me')->innerXHTML(), 'BR should have a closing tag.');
@@ -1112,7 +1112,7 @@ class DOMQueryTest extends TestCase {
     $xml = '<b>test</b>';
     $this->assertEquals($xml, $qp->xml($xml)->find('b')->xml());
 
-    $xml = '<html><head><title>foo</title></head><body>bar</body></html>';
+    $xml = '<html><head></head><body>bar</body></html>';
     // We expect an XML declaration to be prepended:
     $this->assertEquals('<?xml', substr(qp($xml, 'html')->xml(), 0, 5));
 
@@ -1136,7 +1136,7 @@ class DOMQueryTest extends TestCase {
     $xml = '<b>test</b>';
     $this->assertEquals($xml, $qp->xml($xml)->find('b')->xhtml());
 
-    $xml = '<html><head><title>foo</title></head><body>bar</body></html>';
+    $xml = '<html><head></head><body>bar</body></html>';
     // We expect an XML declaration to be prepended:
     $this->assertEquals('<?xml', substr(qp($xml, 'html')->xhtml(), 0, 5));
 
@@ -1152,7 +1152,7 @@ class DOMQueryTest extends TestCase {
     $this->assertNull(qp($file, 'li')->map(array($this, $fn))->xhtml());
 
     // Regression for issue #10: Tags should not be unary (e.g. we want <script></script>, not <script/>)
-    $xml = '<html><head><title>foo</title></head>
+    $xml = '<html><head></head>
       <body>
       bar<br/><hr width="100">
       <script></script>
@@ -1194,7 +1194,7 @@ class DOMQueryTest extends TestCase {
   }
 
   public function testWriteXML() {
-    $xml = '<?xml version="1.0"?><html><head><title>foo</title></head><body>bar</body></html>';
+    $xml = '<?xml version="1.0"?><html><head></head><body>bar</body></html>';
 
     if (!ob_start()) die ("Could not start OB.");
     qp($xml, 'tml')->writeXML();
@@ -1210,7 +1210,7 @@ class DOMQueryTest extends TestCase {
     -->
     </script>
     <![CDATA[This is CDATA]]>
-    <title>foo</title></head><body>bar</body></html>';
+    </head><body>bar</body></html>';
 
     if (!ob_start()) die ("Could not start OB.");
     qp($xml, 'tml')->writeXML();
@@ -1229,7 +1229,7 @@ class DOMQueryTest extends TestCase {
   }
 
   public function testWriteXHTML() {
-    $xml = '<?xml version="1.0"?><html><head><title>foo</title></head><body>bar</body></html>';
+    $xml = '<?xml version="1.0"?><html><head></head><body>bar</body></html>';
 
     if (!ob_start()) die ("Could not start OB.");
     qp($xml, 'tml')->writeXHTML();
@@ -1245,7 +1245,7 @@ class DOMQueryTest extends TestCase {
     -->
     </script>
     <![CDATA[This is CDATA]]>
-    <title>foo</title></head><body>bar</body></html>';
+    </head><body>bar</body></html>';
 
     if (!ob_start()) die ("Could not start OB.");
     qp($xml, 'html')->writeXHTML();
@@ -1263,7 +1263,7 @@ class DOMQueryTest extends TestCase {
     unlink($name);
 
     // Regression for issue #10 (keep closing tags in XHTML)
-    $xhtml = '<?xml version="1.0"?><html><head><title>foo</title><script></script><br/></head><body>bar</body></html>';
+    $xhtml = '<?xml version="1.0"?><html><head><script></script><br/></head><body>bar</body></html>';
     if (!ob_start()) die ("Could not start OB.");
     qp($xhtml, 'html')->writeXHTML();
     $out = ob_get_contents();
@@ -1319,7 +1319,7 @@ class DOMQueryTest extends TestCase {
   }
 
   public function testWriteHTML() {
-    $xml = '<html><head><title>foo</title></head><body>bar</body></html>';
+    $xml = '<html><head></head><body>bar</body></html>';
 
     if (!ob_start()) die ("Could not start OB.");
     qp($xml, 'tml')->writeHTML();
@@ -1329,7 +1329,7 @@ class DOMQueryTest extends TestCase {
     // We expect a doctype declaration at the top.
     $this->assertEquals('<!DOC', substr($out, 0, 5));
 
-    $xml = '<html><head><title>foo</title>
+    $xml = '<html><head>
     <script><!--
     var foo = 1 < 5;
     --></script>
@@ -1343,7 +1343,7 @@ class DOMQueryTest extends TestCase {
     // We expect a doctype declaration at the top.
     $this->assertEquals('<!DOC', substr($out, 0, 5));
 
-    $xml = '<html><head><title>foo</title>
+    $xml = '<html><head>
     <script><![CDATA[
     var foo = 1 < 5;
     ]]></script>

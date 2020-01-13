@@ -887,13 +887,13 @@ class TokenizerTest extends \Masterminds\HTML5\Tests\TestCase
         }
 
         // Testing case sensitivity
-        $events = $this->parse('<TITLE>a test</TITLE>');
+        $events = $this->parse('');
         $this->assertEventEquals('startTag', 'title', $events->get(0));
         $this->assertEventEquals('text', 'a test', $events->get(1));
         $this->assertEventEquals('endTag', 'title', $events->get(2));
 
         // Testing end tags with whitespaces
-        $events = $this->parse('<title>Whitespaces are tasty</title >');
+        $events = $this->parse('');
         $this->assertEventEquals('startTag', 'title', $events->get(0));
         $this->assertEventEquals('text', 'Whitespaces are tasty', $events->get(1));
         $this->assertEventEquals('endTag', 'title', $events->get(2));
@@ -901,7 +901,7 @@ class TokenizerTest extends \Masterminds\HTML5\Tests\TestCase
 
     public function testRcdata()
     {
-        list ($tok, $events) = $this->createTokenizer('<title>&#x27;<!-- not a comment --></TITLE>');
+        list ($tok, $events) = $this->createTokenizer('');
         $tok->setTextMode(\Masterminds\HTML5\Elements::TEXT_RCDATA, 'title');
         $tok->parse();
         $this->assertEventEquals('text', "'<!-- not a comment -->", $events->get(1));

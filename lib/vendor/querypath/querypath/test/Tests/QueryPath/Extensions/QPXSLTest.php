@@ -26,12 +26,10 @@ class QPXSLTests extends TestCase {
     // and then modified to be *actually welformed* XML.
     $orig = '<?xml version="1.0"?><collection>
      <cd>
-      <title>Fight for your mind</title>
       <artist>Ben Harper</artist>
       <year>1995</year>
      </cd>
      <cd>
-      <title>Electric Ladyland</title>
       <artist>Jimi Hendrix</artist>
       <year>1997</year>
      </cd>

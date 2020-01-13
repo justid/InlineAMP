@@ -17,7 +17,6 @@
 ?>
 <html>
 <head>
-  <title>Parse PHP from QueryPath</title>
 </head>
 <body>
 <?php

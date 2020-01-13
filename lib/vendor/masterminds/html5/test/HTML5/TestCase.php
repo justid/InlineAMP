@@ -6,7 +6,7 @@ use Masterminds\HTML5;
 class TestCase extends \PHPUnit_Framework_TestCase
 {
 
-    const DOC_OPEN = '<!DOCTYPE html><html><head><title>test</title></head><body>';
+    const DOC_OPEN = '<!DOCTYPE html><html><head></head><body>';
 
     const DOC_CLOSE = '</body></html>';
 
