@@ -19,7 +19,12 @@
             <?php endif; ?>
         <?php endif; ?>
         <?php if ( !comments_open() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-            <p><?php _e( 'Comments are closed here.'); ?></p>
+			<p>
+			<?php 
+				$comments_closed = sprintf( __( 'Comments Off<span class="screen-reader-text"> on %s</span>' ), get_the_title());
+				echo $comments_closed;
+			?>
+			</p>
         <?php else: ?>
             <?php my_comment_form(); ?>
         <?php endif; ?>
