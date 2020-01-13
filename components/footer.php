@@ -13,7 +13,7 @@
         </div>
         <div class="footer-copyright">
             <p>
-                Copyright &copy;<?php echo date_i18n(_x( 'Y', 'copyright date format'));?> 
+                Copyright &copy;<?php echo date_i18n(_x( 'Y', 'copyright date format','inline-amp'));?> 
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('blog_title'); ?></a>     
                 . All Rights Reserved.
             </p>

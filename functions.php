@@ -1,7 +1,7 @@
 <?php
+
 function theme_support() {
 	add_theme_support('post-thumbnails');
-	add_theme_support('title-tag');
 	add_theme_support('automatic-feed-links');
 }
 
@@ -211,7 +211,7 @@ class my_search extends WP_Widget {
 			'description'                 => __( 'A search form for your site.' ,'inline-amp'),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'search', _x( 'Search', 'Search widget' ), $widget_ops );
+		parent::__construct( 'search', _x( 'Search', 'Search widget','inline-amp' ), $widget_ops );
 	}
 
 	public function widget( $args, $instance ) {
@@ -226,7 +226,7 @@ class my_search extends WP_Widget {
 
         echo 
         '<form target="_top" role="search" method="get" class="search-form" action="'.trailingslashit(follow_scheme_replace(get_site_url())).'">
-            <input required type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" />
+            <input required type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder','inline-amp' ) . '" value="' . get_search_query() . '" name="s" />
             <button type="submit" class="search-submit"></button>
         </form>';
 
@@ -367,14 +367,14 @@ class my_profile extends WP_Widget {
 			<?php if ( ! in_array( 'text_widget_custom_html', $dismissed_pointers, true ) ) : ?>
 				<div hidden class="wp-pointer custom-html-widget-pointer wp-pointer-top">
 					<div class="wp-pointer-content">
-						<h3><?php _e( 'New Custom HTML Widget' ); ?></h3>
+						<h3><?php _e( 'New Custom HTML Widget','inline-amp' ); ?></h3>
 						<?php if ( is_customize_preview() ) : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by pressing the &#8220;<a class="add-widget" href="#">Add a Widget</a>&#8221; button and searching for &#8220;HTML&#8221;. Check it out to add some custom code to your site!' ); ?></p>
+							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by pressing the &#8220;<a class="add-widget" href="#">Add a Widget</a>&#8221; button and searching for &#8220;HTML&#8221;. Check it out to add some custom code to your site!','inline-amp' ); ?></p>
 						<?php else : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!' ); ?></p>
+							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!','inline-amp' ); ?></p>
 						<?php endif; ?>
 						<div class="wp-pointer-buttons">
-							<a class="close" href="#"><?php _e( 'Dismiss' ); ?></a>
+							<a class="close" href="#"><?php _e( 'Dismiss','inline-amp' ); ?></a>
 						</div>
 					</div>
 					<div class="wp-pointer-arrow">
@@ -386,10 +386,10 @@ class my_profile extends WP_Widget {
 			<?php if ( ! in_array( 'text_widget_paste_html', $dismissed_pointers, true ) ) : ?>
 				<div hidden class="wp-pointer paste-html-pointer wp-pointer-top">
 					<div class="wp-pointer-content">
-						<h3><?php _e( 'Did you just paste HTML?' ); ?></h3>
-						<p><?php _e( 'Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Text&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!' ); ?></p>
+						<h3><?php _e( 'Did you just paste HTML?','inline-amp' ); ?></h3>
+						<p><?php _e( 'Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Text&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!','inline-amp' ); ?></p>
 						<div class="wp-pointer-buttons">
-							<a class="close" href="#"><?php _e( 'Dismiss' ); ?></a>
+							<a class="close" href="#"><?php _e( 'Dismiss','inline-amp' ); ?></a>
 						</div>
 					</div>
 					<div class="wp-pointer-arrow">
@@ -399,7 +399,7 @@ class my_profile extends WP_Widget {
 			<?php endif; ?>
 
 			<p>
-				<label for="{{ elementIdPrefix }}text" class="screen-reader-text"><?php esc_html_e( 'Content:' ); ?></label>
+				<label for="{{ elementIdPrefix }}text" class="screen-reader-text"><?php esc_html_e( 'Content:','inline-amp' ); ?></label>
 				<textarea id="{{ elementIdPrefix }}text" class="widefat text wp-editor-area" style="height: 200px" rows="16" cols="20"></textarea>
 			</p>
 		</script>
@@ -567,7 +567,7 @@ function post_password()
 	$label  = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 	$output = '<form  on="submit-success:AMP.navigateTo(url=event.response.url)" action-xhr="' . follow_scheme_replace(get_site_url(null, '/wp-admin/admin-ajax.php?action=amp_post_password')) . '" class="post-password-form" method="post">
 	<p>' . __( 'This content is password protected. To view it please enter your password below:' ,'inline-amp') . '</p>
-	<p><label for="' . $label . '">' . __( 'Password:' ,'inline-amp') . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form' ) . '" /></p></form>
+	<p><label for="' . $label . '">' . __( 'Password:' ,'inline-amp') . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form','inline-amp' ) . '" /></p></form>
     ';
     
 	return apply_filters( 'the_password_form', $output );
