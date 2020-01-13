@@ -1,5 +1,5 @@
 Theme Name: Inline AMP
-Text Domain: InlineAMP
+Text Domain: inline-amp
 Version: 1.0
 Requires at least: 5.3
 Requires PHP: 5.2.4
