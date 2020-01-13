@@ -1,4 +1,3 @@
-/*
 Theme Name: Inline AMP
 Text Domain: InlineAMP
 Version: 1.0
@@ -11,7 +10,3 @@ Author URI: https://hhacker.com
 Theme URI: https://github.com/justid/InlineAMP
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-*/
-
-
-
