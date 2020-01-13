@@ -150,7 +150,7 @@
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="search-box">
-                    <h2><?php echo _e('Search Results') ?></h2>
+                    <h2><?php echo _e('Search Results','inline-amp') ?></h2>
                     <form target="_top" role="search" method="get" class="search-form" action="<?php echo follow_scheme_replace(get_site_url()) ?>">
                         <input type="text" required class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder' )?>" value="<?php echo get_search_query()?>" name="s" />
                         <button type="submit" class="search-submit"></button>
@@ -163,7 +163,7 @@
                 <div class="post-list">
                 <?php if (!have_posts()): ?>
                     <div class="nothing">
-                        <h3><?php _e( 'No results found.'); ?></h3>
+                        <h3><?php _e( 'No results found.','inline-amp'); ?></h3>
                     </div>
                 <?php endif; ?>
                 <?php while (have_posts()) : the_post(); ?>
@@ -186,11 +186,11 @@
                             <?php echo get_the_excerpt() ?>
                         </div>
                         <div class="flex-box justify-between">
-                            <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('Read more'); ?><span class="iconfont icon-ml-readmore">&#xe649;</span></a>
+                            <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('Read more','inline-amp'); ?><span class="iconfont icon-ml-readmore">&#xe649;</span></a>
                             <div class="flex-box post-meta-box">
                                 <?php if ($edit_link = get_edit_post_link(get_the_ID())): ?>
                                 <div class="flex-box">
-                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit')?></a>
+                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit','inline-amp')?></a>
                                 </div>
                                 <?php endif; ?>
                                 <a class="post-meta" href="<?php the_permalink() ?>#comments"><span class="iconfont icon-mr-postmeta">&#xe630;</span><?php comments_number('0', '1', '%'); ?></a>

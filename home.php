@@ -47,10 +47,10 @@
                             <?php echo get_the_excerpt() ?>
                         </div>
                         <div class="flex-box justify-between">
-                            <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('Read more'); ?><span class="iconfont icon-ml-readmore">&#xe649;</span></a>
+                            <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('Read more','inline-amp'); ?><span class="iconfont icon-ml-readmore">&#xe649;</span></a>
                             <div class="flex-box post-meta-box">
                                 <?php if ($edit_link = get_edit_post_link(get_the_ID())): ?>
-                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit')?></a>
+                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit','inline-amp')?></a>
                                 <?php endif; ?>
                                 <a class="post-meta" href="<?php the_permalink() ?>#comments"><span class="iconfont icon-mr-postmeta">&#xe630;</span><?php comments_number('0', '1', '%'); ?></a>
                                 <a class="post-meta" href="<?php the_permalink() ?>"><span class="iconfont icon-mr-postmeta">&#xe62e;</span><?php echo (int)get_post_meta(get_the_ID(), 'views', true); ?></a>

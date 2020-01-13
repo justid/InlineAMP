@@ -135,9 +135,9 @@
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="tagline">
-                    <div class="tagline-main"><?php _e( 'Page not found'); ?></div>
+                    <div class="tagline-main"><?php _e( 'Page not found','inline-amp'); ?></div>
                     <div class="tagline-sub"><?php printf(
-                        __( 'It looks like nothing was found at this location. Maybe try visiting %s directly?' ),
+                        __( 'It looks like nothing was found at this location. Maybe try visiting %s directly?','inline-amp' ),
                         '<a href="' . esc_url( home_url() ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>'
                     ); ?></div>
                 </div>

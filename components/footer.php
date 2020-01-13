@@ -18,7 +18,7 @@
                 . All Rights Reserved.
             </p>
             <p>
-                <a href="<?php echo esc_url( __( 'https://wordpress.org/') ); ?>"><?php _e( 'Powered by WordPress'); ?></a> 
+                <a href="<?php echo esc_url( __( 'https://wordpress.org/','inline-amp') ); ?>"><?php _e( 'Powered by WordPress','inline-amp'); ?></a> 
                     • 
                 <a href="https://hhacker.com">Theme Inline AMP</a>
             </p>

@@ -1,6 +1,8 @@
 <?php
 function theme_support() {
-    add_theme_support('post-thumbnails');
+	add_theme_support('post-thumbnails');
+	add_theme_support('title-tag');
+	add_theme_support('automatic-feed-links');
 }
 
 add_action( 'after_setup_theme', 'theme_support' );
@@ -18,7 +20,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->remove_section('static_front_page');
     
     $wp_customize->add_section( 'header_setting' , array(
-        'title'      => __( 'Header Setting'),
+        'title'      => __( 'Header Setting','inline-amp'),
         'priority'   => 10,
     ) );
 
@@ -42,9 +44,9 @@ function my_customize_register($wp_customize) {
 
     /* Addtional JS */
     $wp_customize->add_section( 'more_js' , array(
-        'title'      => __( 'Additional JS'),
+        'title'      => __( 'Additional JS','inline-amp'),
         'description' => __('You can paste your additional js code here, such as Google Adsense or Google Analytics code.
-        <br /><b>Theses code should follow the AMP Spec.</b>'),
+        <br /><b>Theses code should follow the AMP Spec.</b>','inline-amp'),
     ) );
     $wp_customize->add_setting( 'header_js' , array(
         'default'   => '',
@@ -59,7 +61,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_header_js', 
         array(
-            'label'    => __( 'Insert to Header'),
+            'label'    => __( 'Insert to Header','inline-amp'),
             'section'  => 'more_js',
             'settings' => 'header_js',
             'type'     => 'textarea',
@@ -69,7 +71,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_body_js', 
         array(
-            'label'    => __( 'Insert to Body'),
+            'label'    => __( 'Insert to Body','inline-amp'),
             'section'  => 'more_js',
             'settings' => 'body_js',
             'type'     => 'textarea',
@@ -79,7 +81,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_blog_title', 
         array(
-            'label'    => __( 'Blog Title'),
+            'label'    => __( 'Blog Title','inline-amp'),
             'section'  => 'header_setting',
             'settings' => 'blog_title',
             'type'     => 'text',
@@ -89,7 +91,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_main_tagline', 
         array(
-            'label'    => __( 'Main tagline'),
+            'label'    => __( 'Main tagline','inline-amp'),
             'section'  => 'header_setting',
             'settings' => 'main_tagline',
             'type'     => 'text',
@@ -99,7 +101,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_sub_tagline', 
         array(
-            'label'    => __( 'Sub tagline'),
+            'label'    => __( 'Sub tagline','inline-amp'),
             'section'  => 'header_setting',
             'settings' => 'sub_tagline',
             'type'     => 'textarea',
@@ -108,8 +110,8 @@ function my_customize_register($wp_customize) {
 
     $wp_customize->add_control( new WP_Customize_Site_Icon_Control( $wp_customize, 'set_favicon',
         array(
-            'label' => __( 'Favicon' ),
-            'description' => __( 'Favicon is what you see in <strong>browser tabs</strong>, bookmark bars'),
+            'label' => __( 'Favicon' ,'inline-amp'),
+            'description' => __( 'Favicon is what you see in <strong>browser tabs</strong>, bookmark bars','inline-amp'),
             'section' => 'header_setting',
             'settings' => 'favicon',
             'width' => 32, 
@@ -123,8 +125,8 @@ add_action( 'customize_register', 'my_customize_register' );
 
 function my_menus() {
 	$locations = array(
-		'primary'  => __( 'Top Header Menu'),
-		'footer'   => __( 'Footer Menu'),
+		'primary'  => __( 'Top Header Menu','inline-amp'),
+		'footer'   => __( 'Footer Menu','inline-amp'),
 	);
 
 	register_nav_menus( $locations );
@@ -206,7 +208,7 @@ class my_search extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'widget_search',
-			'description'                 => __( 'A search form for your site.' ),
+			'description'                 => __( 'A search form for your site.' ,'inline-amp'),
 			'customize_selective_refresh' => true,
 		);
 		parent::__construct( 'search', _x( 'Search', 'Search widget' ), $widget_ops );
@@ -235,7 +237,7 @@ class my_search extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title    = $instance['title'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','inline-amp' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
 		<?php
 	}
 
@@ -257,10 +259,10 @@ class my_profile extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'                   => 'widget_profile',
-			'description'                 => __( 'Your public profile' ),
+			'description'                 => __( 'Your public profile' ,'inline-amp'),
 			'customize_selective_refresh' => true,
         );
-		parent::__construct( 'profile', __( 'Profile'), $widget_ops );
+		parent::__construct( 'profile', __( 'Profile','inline-amp'), $widget_ops );
     }
     
     public function scripts()
@@ -280,7 +282,7 @@ class my_profile extends WP_Widget {
 
 	public function widget( $args, $instance ) {
         $image = ! empty( $instance['image'] ) ? $instance['image'] : get_avatar_url(get_current_user_id());
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE');
+        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','inline-amp');
 
         $text = apply_filters( 'widget_text_content', $text, $instance, $this );
         $text = html2amp($text);
@@ -321,7 +323,7 @@ class my_profile extends WP_Widget {
 
 	public function form( $instance ) {
         $image = ! empty( $instance['image'] ) ? $instance['image'] : get_avatar_url(get_current_user_id());
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE');
+        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','inline-amp');
         
         ?>
         <p>
@@ -423,7 +425,7 @@ function my_sidebar_registration() {
     register_widget('my_profile');
 
     register_sidebar(array(
-        'name' => __( 'Sidebar'),
+        'name' => __( 'Sidebar','inline-amp'),
         'id' => 'my-sidebar',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
@@ -466,7 +468,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="author" name="author" type="text" value="%s" size="30" maxlength="245"  placeholder="%s" />',
                         esc_attr( $commenter['comment_author'] ),
-                        __( 'Name' ).'*'
+                        __( 'Name','inline-amp' ).'*'
                     )
                 ),
                 'email'  => sprintf(
@@ -474,7 +476,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="email" name="email" type="email" value="%s" size="30" maxlength="100" aria-describedby="email-notes"  placeholder="%s" />',
                         esc_attr( $commenter['comment_author_email'] ),
-                        __( 'Email' ).'*'
+                        __( 'Email','inline-amp' ).'*'
                     )
                 ),
                 'url'    => sprintf(
@@ -482,7 +484,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="url" name="url" type="url" value="%s" size="30" maxlength="200" placeholder="%s" />',
                         esc_attr( $commenter['comment_author_url'] ),
-                        __( 'Website' )
+                        __( 'Website','inline-amp' )
                     )
                 ),
               ),
@@ -494,7 +496,7 @@ function my_comment_form()
                 </template>
               </div>
               <p class="comment-form-comment">
-              <textarea id="comment" class="comment-content" name="comment" maxlength="65525" placeholder="'.__('Comment Content').'*"></textarea>
+              <textarea id="comment" class="comment-content" name="comment" maxlength="65525" placeholder="'.__('Comment Content','inline-amp').'*"></textarea>
               </p>',
               'action'=> follow_scheme_replace(get_site_url(null, '/wp-admin/admin-ajax.php?action=amp_comment_submit')),
     ));
@@ -564,8 +566,8 @@ function post_password()
 	$post   = get_post();
 	$label  = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 	$output = '<form  on="submit-success:AMP.navigateTo(url=event.response.url)" action-xhr="' . follow_scheme_replace(get_site_url(null, '/wp-admin/admin-ajax.php?action=amp_post_password')) . '" class="post-password-form" method="post">
-	<p>' . __( 'This content is password protected. To view it please enter your password below:' ) . '</p>
-	<p><label for="' . $label . '">' . __( 'Password:' ) . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form' ) . '" /></p></form>
+	<p>' . __( 'This content is password protected. To view it please enter your password below:' ,'inline-amp') . '</p>
+	<p><label for="' . $label . '">' . __( 'Password:' ,'inline-amp') . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form' ) . '" /></p></form>
     ';
     
 	return apply_filters( 'the_password_form', $output );
