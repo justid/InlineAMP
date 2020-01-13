@@ -1,7 +1,5 @@
 
-# InlineAMP
-
-![theme thumbnail](https://github.com/justid/InlineAMP/raw/master/docs/thumbnail.png)
+# InlineAMP 
 
 ![theme preview](https://github.com/justid/InlineAMP/raw/master/docs/preview.png)
 
@@ -30,6 +28,8 @@ Nothing there.
 6. Blog Style
 
 ## License
+
+![theme thumbnail](https://github.com/justid/InlineAMP/raw/master/docs/thumbnail.png)
 
 ALL Html,CSS,JavaScript,and PHP files are licensed under the GNU General Public License v3:
 
