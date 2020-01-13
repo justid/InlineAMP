@@ -26,7 +26,8 @@
     </div>
 </footer>
 <?php 
-    if (is_customize_preview()) {
-        wp_footer(); 
-    }
+    if (is_customize_preview() || is_user_logged_in()) {
+		wp_footer(); 
+	}
+	
 ?>
