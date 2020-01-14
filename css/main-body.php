@@ -194,9 +194,6 @@ a.title-img:hover amp-img.contain img {
     font-size: 1.1905vw;
 }
 
-.post-meta-box a.edit-link {
-    font-size: 0.9524vw;
-}
 
 .post-meta-box a.edit-link:after {
     content: '';
