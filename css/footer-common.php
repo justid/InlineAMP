@@ -25,25 +25,25 @@ footer {
     line-height: 0.5952vw;
     text-decoration: none;
 }
-.menu-footer-menu-container {
+.footer-menus>nav {
     margin-top: 2.893vw;
     margin-bottom: 0.875vw;
 }
-.menu-footer-menu-container>ul {
+.footer-menus>nav>ul {
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
     display: flex;
     justify-content: center;
 }
-.menu-footer-menu-container>ul>li {
+.footer-menus>nav>ul>li {
     font-size: 1.0714vw;
     line-height: 1.0714vw;
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
 }
-.menu-footer-menu-container>ul>li>a:after {
+.footer-menus>nav>ul>li>a:after {
     display: flex;
     content: '';
     margin-top: 0.7798vw;
@@ -51,14 +51,14 @@ footer {
     height: 0.119vw;
     background: #444444;
 }
-.menu-footer-menu-container>ul>li>a {
+.footer-menus>nav>ul>li>a {
     color: #DBB302;
 }
-.menu-footer-menu-container a {
+.footer-menus>nav a {
     text-decoration: none;
     font-size: 1.0714vw;
 }
-.menu-footer-menu-container ul, .menu-footer-menu-container li {
+.footer-menus>nav ul, .footer-menus>nav li {
     list-style: none;
     justify-content: space-around;
     justify-content: space-evenly;
@@ -67,12 +67,12 @@ footer {
 }
 
 
-.menu-footer-menu-container>ul>li .sub-menu {
+.footer-menus>nav>ul>li .sub-menu {
     display: flex;
     flex-direction: column;
     text-transform: none;
 }
-.menu-footer-menu-container>ul>li ul li {
+.footer-menus>nav>ul>li ul li {
     margin-top: 1.2143vw;
     line-height: 0.9524vw;
     display: flex;
@@ -82,10 +82,10 @@ footer {
 .footer-container a:hover {
     color:#DBB302;
 }
-.menu-footer-menu-container>ul>li ul li:first-child {
+.footer-menus>nav>ul>li ul li:first-child {
     margin-top: 0.893vw;
 }
-.menu-footer-menu-container>ul>li ul li a{
+.footer-menus>nav>ul>li ul li a{
     font-size: 0.9524vw;
     color: rgba(255,255,255,0.6);
     display: flex;
@@ -99,7 +99,7 @@ footer {
         padding-bottom: 5.3333vw;
     }
 
-    .menu-footer-menu-container>ul>li {
+    .footer-menus>nav>ul>li {
         font-size: 3.7333vw;
         line-height: 3.7333vw;
         margin-bottom: 13.3333vw;
@@ -108,37 +108,37 @@ footer {
         margin-right: 4vw
     }
 
-    .menu-footer-menu-container a {
+    .footer-menus>nav a {
         font-size: 3.7333vw;
     }
-    .menu-footer-menu-container>ul>li>a:after {
+    .footer-menus>nav>ul>li>a:after {
         margin-top: 2.8vw;
         width: 8.5467vw;
         height: 0.4267vw;
     }
 
-    .menu-footer-menu-container>ul>li ul li:first-child {
+    .footer-menus>nav>ul>li ul li:first-child {
         margin-top: 3.1733vw;
     }
 
-    .menu-footer-menu-container>ul>li ul li {
+    .footer-menus>nav>ul>li ul li {
         margin-top: 4.3067vw;
         font-size: 3.4667vw;
         line-height: 3.4667vw;
     }
 
-    .menu-footer-menu-container>ul>li ul li a {
+    .footer-menus>nav>ul>li ul li a {
         font-size: 3.4667vw;
     }
 
-    .menu-footer-menu-container>ul {
+    .footer-menus>nav>ul {
         flex-wrap: wrap;
         justify-content: space-between;
         box-sizing: border-box;
         padding: 0 8.5334vw 0 8.5334vw;
     }
 
-    .menu-footer-menu-container {
+    .footer-menus>nav {
         margin: 0;
     }
 
