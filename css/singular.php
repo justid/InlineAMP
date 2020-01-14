@@ -139,7 +139,7 @@
         margin: 2.0238vw 0 2.0238vw 0;
     }
 	
-	.blocks-gallery-item figure amp-img {
+	.blocks-gallery-item figure img{
 		display: flex;
 	}
 
