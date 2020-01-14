@@ -2,7 +2,8 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    font-family: 'PT Serif',-apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif, serif;
+	font-family: 'PT Serif',-apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif, serif;
+	background: white;
 }
 
 *:focus{
