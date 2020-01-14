@@ -237,6 +237,7 @@ a.title-img:hover amp-img.contain img {
     display: none;
 }
 .nav-links {
+	margin-top: 2.9762vw;
     margin-bottom: 2.9762vw;
     display: flex;
     justify-content: center;

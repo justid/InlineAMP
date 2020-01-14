@@ -67,14 +67,14 @@
     }
 
     .article-info .post-meta-box {
-        margin-bottom: 2.381vw;
+        margin-bottom: 0.9524vw;
     }
 
     .content blockquote {
         margin-left:0;
         margin-right:0;
-        margin-top: 0;
-        margin-bottom: 2.8869vw;
+        margin-top: 1.4286vw;
+        margin-bottom: 1.4286vw;
         position: relative;
         padding-left: 3.5714vw;
     }
@@ -104,7 +104,7 @@
     .content h4,
     .content h5,
     .content h6 {
-        margin-top: 0;
+        margin-top: 1.7857vw;
         margin-bottom: 1.7857vw;
     }
 
@@ -128,7 +128,7 @@
     }  
 
     .content p {
-        margin-top: 0;
+        margin-top: 2.0238vw;
         margin-bottom: 2.0238vw;
         font-size: 1.0714vw;
         line-height: 1.9048vw;
@@ -136,23 +136,18 @@
     } 
 
     .content>figure {
-        margin: 0 0 2.0238vw 0;
+        margin: 2.0238vw 0 2.0238vw 0;
     }
-
-    amp-img,amp-audio,amp-video
-    {
-		max-width: 100%;
-	}
 	
 	.blocks-gallery-item figure amp-img {
 		display: flex;
 	}
 
-    .content ul,.content ol {
+    .content ul, .content ol {
         padding-left: 1.4881vw;
         font-size: 1.0714vw;
         line-height: 1.9048vw;
-        margin-top: 0;
+        margin-top: 2.0238vw;  
         margin-bottom: 2.0238vw;  
     }
 
@@ -164,7 +159,7 @@
     }
 
     .wp-block-cover {
-        margin: 0 0 2.0238vw 0;
+        margin: 2.0238vw 0 2.0238vw 0;
     }
     .wp-block-cover-image, .wp-block-cover {
         position: relative;
@@ -273,7 +268,7 @@
         padding-right: 1.0119vw;
         padding-top: 1.0714vw;
         padding-bottom: 1.0714vw;
-        margin: 0 0 2.0238vw 0;
+        margin: 2.0238vw 0 2.0238vw 0;
         font-size: 0.9524vw;
         line-height: 2.381vw;
     }
@@ -337,7 +332,7 @@
     }
 
     .wp-block-button {
-        margin: 0 0 2.0238vw 0;
+        margin: 2.0238vw 0 2.0238vw 0;
     }
     .wp-block-button a {
         text-decoration: underline;
@@ -345,7 +340,7 @@
 
     .wp-block-media-text {
         display: flex;
-        margin: 0 0 2.0238vw 0;
+        margin: 2.0238vw 0 2.0238vw 0;
     }
 
     .wp-block-media-text figure {
@@ -698,10 +693,11 @@
             margin-bottom: 5.3333vw;
         }
         .article-info .post-meta-box {
-            margin-bottom: 5.3333vw;
+            margin-bottom: 0;
         }
 
         .content blockquote {
+			margin-top: 6.4666vw;
             margin-bottom: 6.4666vw;
             padding-left: 8vw;   
         }
@@ -716,6 +712,7 @@
             line-height: 5.6vw;
         }
         .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+			margin-top: 5.3333vw;
             margin-bottom: 5.3333vw;
         }
         .content h1 {
@@ -737,6 +734,7 @@
             font-size: 4.2667vw;
         } 
         .content p {
+			margin-top: 4.5333vw;
             margin-bottom: 4.5333vw;
             font-size: 4vw;
             line-height: 5.8667vw;
@@ -745,7 +743,8 @@
         .content ul, .content ol {
             padding-left: 3.3333vw;
             font-size: 4vw;
-            line-height: 5.8667vw;  
+			line-height: 5.8667vw;  
+			margin-top: 5.3333vw;    
             margin-bottom: 5.3333vw;    
         }
 
@@ -755,12 +754,12 @@
         }
 
         .content>figure {
-            margin: 0 0 4.5333vw 0;
+            margin: 4.5333vw 0 4.5333vw 0;
         }
 
         .wp-block-cover-image, .wp-block-cover {
             min-height: 50vw;
-            margin: 0 0 4.5333vw 0;
+            margin: 4.5333vw 0 4.5333vw 0;
         }
 
         .wp-block-gallery ul>li {
@@ -782,7 +781,7 @@
             padding-right: 2.6667vw;
             padding-top: 1.3333vw;
             padding-bottom: 1.3333vw;
-            margin: 0 0 4.5333vw 0;
+            margin: 4.5333vw 0 4.5333vw 0;
             font-size: 3.4667vw;
             line-height: 5.3333vw;
         }
@@ -796,7 +795,17 @@
         .wp-block-file a:last-child:after, a.wp-block-file__button:after {
             font-size: 2.6667vw;
             margin-left: 2.4vw;
-        }
+		}
+		
+		.nav-links {
+			margin-top: 4.5333vw;
+			margin-bottom: 4.5333vw;
+		}
+
+		.wp-block-button {
+			margin: 4.5333vw 0 4.5333vw 0;
+		}
+
         .likes-button {
             width: 16vw;
             height: 16vw;
