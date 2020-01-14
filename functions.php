@@ -603,3 +603,10 @@ function amp_post_password(){
 }
 add_action('wp_ajax_amp_post_password', 'amp_post_password');
 add_action('wp_ajax_nopriv_amp_post_password', 'amp_post_password');
+
+// more excerpt
+function reset_excerpt_length($length) {
+	$new_length = 150;
+    return $new_length;
+}
+add_filter('excerpt_length', 'reset_excerpt_length');
