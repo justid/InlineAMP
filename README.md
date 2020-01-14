@@ -17,6 +17,14 @@
 
 3. [AMP plugin](https://wordpress.org/plugins/amp/)
 
+## Install
+
+1. Install theme
+
+2. Install AMP plugin
+
+3. Setting AMP plugin to **Standard** Website Mode
+
 ## TODO
 
 Nothing there.

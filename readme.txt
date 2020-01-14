@@ -15,7 +15,7 @@ InlineAMP has a traditional two-column layout, it's designed for easy-use,friend
 
 = Do we need plugins to pass the AMP checker?  =
 
-Yes, you need to install the AMP plugin.
+Yes, you need to install the AMP plugin and setting it to Standard mode.
 https://wordpress.org/plugins/amp/
 
 == Changelog ==
