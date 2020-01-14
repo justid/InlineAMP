@@ -48,7 +48,7 @@
                                 <span class="post-meta" ><span class="iconfont icon-mr-postmeta">&#xe62e;</span><?php echo (int)get_post_meta(get_the_ID(), 'views', true); ?></span>
                                 <span class="post-meta" ><span class="iconfont icon-mr-postmeta icon-like-sp">&#xe64a;</span><span [text]="likes"><?php echo (int)get_post_meta(get_the_ID(),'likes',true); ?></span></span>
                                 <?php if ($edit_link = get_edit_post_link(get_the_ID())): ?>
-                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit','inline-amp')?></a>
+                                    <a class="post-meta edit-link" href="<?php echo esc_url($edit_link);?>"><span class="iconfont icon-mr-postmeta">&#xe633;</span><?php _e('Edit','default')?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -91,16 +91,16 @@
                     ?>
                     <div class="nav-previous">
                         <?php if (!empty($prev_post)): ?>
-                            <a class="post-nav-link-active" title="<?php echo $prev_post->post_title;?>" href="<?php echo get_permalink($prev_post->ID); ?>"><?php _e('Previous Post','inline-amp')?></a>
+                            <a class="post-nav-link-active" title="<?php echo $prev_post->post_title;?>" href="<?php echo get_permalink($prev_post->ID); ?>"><?php _e('Previous Post','default')?></a>
                         <?php else: ?>
-                            <a><?php _e('Previous Post','inline-amp')?></a>
+                            <a><?php _e('Previous Post','default')?></a>
                         <?php endif; ?>      
                     </div>
                     <div class="nav-next">
                         <?php if (!empty($next_post)): ?>
-                            <a class="post-nav-link-active" title="<?php echo $next_post->post_title;?>" href="<?php echo get_permalink($next_post->ID);?>"><?php _e('Next Post','inline-amp')?></a>
+                            <a class="post-nav-link-active" title="<?php echo $next_post->post_title;?>" href="<?php echo get_permalink($next_post->ID);?>"><?php _e('Next Post','default')?></a>
                         <?php else: ?>
-                            <a><?php _e('Next Post','inline-amp')?></a>
+                            <a><?php _e('Next Post','default')?></a>
                         <?php endif; ?>
                     </div>
                 </nav>

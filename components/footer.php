@@ -13,12 +13,12 @@
         </div>
         <div class="footer-copyright">
             <p>
-                Copyright &copy;<?php echo date_i18n(_x( 'Y', 'copyright date format','inline-amp'));?> 
+                Copyright &copy;<?php echo date_i18n(_x( 'Y', 'copyright date format','default'));?> 
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('blog_title'); ?></a>     
                 . All Rights Reserved.
             </p>
             <p>
-                <a href="<?php echo esc_url( __( 'https://wordpress.org/','inline-amp') ); ?>"><?php _e( 'Powered by WordPress','inline-amp'); ?></a> 
+                <a href="<?php echo esc_url( __( 'https://wordpress.org/','default') ); ?>"><?php _e( 'Powered by WordPress','default'); ?></a> 
                     • 
                 <a href="https://hhacker.com">Theme Inline AMP</a>
             </p>

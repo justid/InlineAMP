@@ -135,9 +135,9 @@
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="tagline">
-                    <div class="tagline-main"><?php _e( 'Page not found','inline-amp'); ?></div>
+                    <div class="tagline-main"><?php _e( 'Page not found','default'); ?></div>
                     <div class="tagline-sub"><?php printf(
-                        __( 'It looks like nothing was found at this location. Maybe try visiting %s directly?','inline-amp' ),
+                        __( 'It looks like nothing was found at this location. Maybe try visiting %s directly?','default' ),
                         '<a href="' . esc_url( home_url() ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>'
                     ); ?></div>
                 </div>
@@ -147,12 +147,12 @@
             <div class="main-container">
                 <div class="search-box">
                     <form target="_top" role="search" method="get" class="search-form" action="<?php echo follow_scheme_replace(get_site_url()) ?>">
-                        <input type="text" required class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder','inline-amp' )?>" value="<?php echo get_search_query()?>" name="s" />
+                        <input type="text" required class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder','default' )?>" value="<?php echo get_search_query()?>" name="s" />
                         <button type="submit" class="search-submit"></button>
                     </form>
                 </div>
             </div>
         </main> 
-        <?php get_template_part('components/footer','inline-amp'); ?>
+        <?php get_template_part('components/footer','default'); ?>
     </body>
 </html>

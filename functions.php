@@ -35,7 +35,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->remove_section('static_front_page');
     
     $wp_customize->add_section( 'header_setting' , array(
-        'title'      => __( 'Header Setting','inline-amp'),
+        'title'      => __( 'Header Setting','default'),
         'priority'   => 10,
     ) );
 
@@ -62,9 +62,9 @@ function my_customize_register($wp_customize) {
 
     /* Addtional JS */
     $wp_customize->add_section( 'more_js' , array(
-        'title'      => __( 'Additional JS','inline-amp'),
+        'title'      => __( 'Additional JS','default'),
         'description' => __('You can paste your additional js code here, such as Google Adsense or Google Analytics code.
-        <br /><b>Theses code should follow the AMP Spec.</b>','inline-amp'),
+        <br /><b>Theses code should follow the AMP Spec.</b>','default'),
     ) );
     $wp_customize->add_setting( 'header_js' , array(
         'default'   => '',
@@ -81,7 +81,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_header_js', 
         array(
-            'label'    => __( 'Insert to Header','inline-amp'),
+            'label'    => __( 'Insert to Header','default'),
             'section'  => 'more_js',
             'settings' => 'header_js',
             'type'     => 'textarea',
@@ -91,7 +91,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_body_js', 
         array(
-            'label'    => __( 'Insert to Body','inline-amp'),
+            'label'    => __( 'Insert to Body','default'),
             'section'  => 'more_js',
             'settings' => 'body_js',
             'type'     => 'textarea',
@@ -101,7 +101,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_blog_title', 
         array(
-            'label'    => __( 'Blog Title','inline-amp'),
+            'label'    => __( 'Blog Title','default'),
             'section'  => 'header_setting',
             'settings' => 'blog_title',
             'type'     => 'text',
@@ -111,7 +111,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_main_tagline', 
         array(
-            'label'    => __( 'Main tagline','inline-amp'),
+            'label'    => __( 'Main tagline','default'),
             'section'  => 'header_setting',
             'settings' => 'main_tagline',
             'type'     => 'text',
@@ -121,7 +121,7 @@ function my_customize_register($wp_customize) {
     $wp_customize->add_control(
         'input_sub_tagline', 
         array(
-            'label'    => __( 'Sub tagline','inline-amp'),
+            'label'    => __( 'Sub tagline','default'),
             'section'  => 'header_setting',
             'settings' => 'sub_tagline',
             'type'     => 'textarea',
@@ -130,8 +130,8 @@ function my_customize_register($wp_customize) {
 
     $wp_customize->add_control( new WP_Customize_Site_Icon_Control( $wp_customize, 'set_favicon',
         array(
-            'label' => __( 'Favicon' ,'inline-amp'),
-            'description' => __( 'Favicon is what you see in <strong>browser tabs</strong>, bookmark bars','inline-amp'),
+            'label' => __( 'Favicon' ,'default'),
+            'description' => __( 'Favicon is what you see in <strong>browser tabs</strong>, bookmark bars','default'),
             'section' => 'header_setting',
             'settings' => 'favicon',
             'width' => 32, 
@@ -145,8 +145,8 @@ add_action( 'customize_register', 'my_customize_register' );
 
 function my_menus() {
 	$locations = array(
-		'primary'  => __( 'Top Header Menu','inline-amp'),
-		'footer'   => __( 'Footer Menu','inline-amp'),
+		'primary'  => __( 'Top Header Menu','default'),
+		'footer'   => __( 'Footer Menu','default'),
 	);
 
 	register_nav_menus( $locations );
@@ -228,10 +228,10 @@ class my_search extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'widget_search',
-			'description'                 => __( 'A search form for your site.' ,'inline-amp'),
+			'description'                 => __( 'A search form for your site.' ,'default'),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'search', _x( 'Search', 'Search widget','inline-amp' ), $widget_ops );
+		parent::__construct( 'search', _x( 'Search', 'Search widget','default' ), $widget_ops );
 	}
 
 	public function widget( $args, $instance ) {
@@ -246,7 +246,7 @@ class my_search extends WP_Widget {
 
         echo 
         '<form target="_top" role="search" method="get" class="search-form" action="'.trailingslashit(follow_scheme_replace(get_site_url())).'">
-            <input required type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder','inline-amp' ) . '" value="' . get_search_query() . '" name="s" />
+            <input required type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder','default' ) . '" value="' . get_search_query() . '" name="s" />
             <button type="submit" class="search-submit"></button>
         </form>';
 
@@ -257,7 +257,7 @@ class my_search extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title    = $instance['title'];
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','inline-amp' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','default' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
 		<?php
 	}
 
@@ -279,10 +279,10 @@ class my_profile extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'                   => 'widget_profile',
-			'description'                 => __( 'Your public profile' ,'inline-amp'),
+			'description'                 => __( 'Your public profile' ,'default'),
 			'customize_selective_refresh' => true,
         );
-		parent::__construct( 'profile', __( 'Profile','inline-amp'), $widget_ops );
+		parent::__construct( 'profile', __( 'Profile','default'), $widget_ops );
     }
     
     public function scripts()
@@ -302,7 +302,7 @@ class my_profile extends WP_Widget {
 
 	public function widget( $args, $instance ) {
         $image = ! empty( $instance['image'] ) ? $instance['image'] : get_avatar_url(get_current_user_id());
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','inline-amp');
+        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','default');
 
         $text = apply_filters( 'widget_text_content', $text, $instance, $this );
         
@@ -342,7 +342,7 @@ class my_profile extends WP_Widget {
 
 	public function form( $instance ) {
         $image = ! empty( $instance['image'] ) ? $instance['image'] : get_avatar_url(get_current_user_id());
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','inline-amp');
+        $text = ! empty( $instance['text'] ) ? $instance['text'] : __('DEMO PROFILE','default');
         
         ?>
         <p>
@@ -386,14 +386,14 @@ class my_profile extends WP_Widget {
 			<?php if ( ! in_array( 'text_widget_custom_html', $dismissed_pointers, true ) ) : ?>
 				<div hidden class="wp-pointer custom-html-widget-pointer wp-pointer-top">
 					<div class="wp-pointer-content">
-						<h3><?php _e( 'New Custom HTML Widget','inline-amp' ); ?></h3>
+						<h3><?php _e( 'New Custom HTML Widget','default' ); ?></h3>
 						<?php if ( is_customize_preview() ) : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by pressing the &#8220;<a class="add-widget" href="#">Add a Widget</a>&#8221; button and searching for &#8220;HTML&#8221;. Check it out to add some custom code to your site!','inline-amp' ); ?></p>
+							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by pressing the &#8220;<a class="add-widget" href="#">Add a Widget</a>&#8221; button and searching for &#8220;HTML&#8221;. Check it out to add some custom code to your site!','default' ); ?></p>
 						<?php else : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!','inline-amp' ); ?></p>
+							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!','default' ); ?></p>
 						<?php endif; ?>
 						<div class="wp-pointer-buttons">
-							<a class="close" href="#"><?php _e( 'Dismiss','inline-amp' ); ?></a>
+							<a class="close" href="#"><?php _e( 'Dismiss','default' ); ?></a>
 						</div>
 					</div>
 					<div class="wp-pointer-arrow">
@@ -405,10 +405,10 @@ class my_profile extends WP_Widget {
 			<?php if ( ! in_array( 'text_widget_paste_html', $dismissed_pointers, true ) ) : ?>
 				<div hidden class="wp-pointer paste-html-pointer wp-pointer-top">
 					<div class="wp-pointer-content">
-						<h3><?php _e( 'Did you just paste HTML?','inline-amp' ); ?></h3>
-						<p><?php _e( 'Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Text&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!','inline-amp' ); ?></p>
+						<h3><?php _e( 'Did you just paste HTML?','default' ); ?></h3>
+						<p><?php _e( 'Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Text&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!','default' ); ?></p>
 						<div class="wp-pointer-buttons">
-							<a class="close" href="#"><?php _e( 'Dismiss','inline-amp' ); ?></a>
+							<a class="close" href="#"><?php _e( 'Dismiss','default' ); ?></a>
 						</div>
 					</div>
 					<div class="wp-pointer-arrow">
@@ -418,7 +418,7 @@ class my_profile extends WP_Widget {
 			<?php endif; ?>
 
 			<p>
-				<label for="{{ elementIdPrefix }}text" class="screen-reader-text"><?php esc_html_e( 'Content:','inline-amp' ); ?></label>
+				<label for="{{ elementIdPrefix }}text" class="screen-reader-text"><?php esc_html_e( 'Content:','default' ); ?></label>
 				<textarea id="{{ elementIdPrefix }}text" class="widefat text wp-editor-area" style="height: 200px" rows="16" cols="20"></textarea>
 			</p>
 		</script>
@@ -446,7 +446,7 @@ function my_sidebar_registration() {
     register_widget('my_profile');
 
     register_sidebar(array(
-        'name' => __( 'Sidebar','inline-amp'),
+        'name' => __( 'Sidebar','default'),
         'id' => 'my-sidebar',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
@@ -483,7 +483,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="author" name="author" type="text" value="%s" size="30" maxlength="245"  placeholder="%s" />',
                         esc_attr( $commenter['comment_author'] ),
-                        __( 'Name','inline-amp' ).'*'
+                        __( 'Name','default' ).'*'
                     )
                 ),
                 'email'  => sprintf(
@@ -491,7 +491,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="email" name="email" type="email" value="%s" size="30" maxlength="100" aria-describedby="email-notes"  placeholder="%s" />',
                         esc_attr( $commenter['comment_author_email'] ),
-                        __( 'Email','inline-amp' ).'*'
+                        __( 'Email','default' ).'*'
                     )
                 ),
                 'url'    => sprintf(
@@ -499,7 +499,7 @@ function my_comment_form()
                     sprintf(
                         '<input id="url" name="url" type="url" value="%s" size="30" maxlength="200" placeholder="%s" />',
                         esc_attr( $commenter['comment_author_url'] ),
-                        __( 'Website','inline-amp' )
+                        __( 'Website','default' )
                     )
                 ),
               ),
@@ -511,7 +511,7 @@ function my_comment_form()
                 </template>
               </div>
               <p class="comment-form-comment">
-              <textarea id="comment" class="comment-content" name="comment" maxlength="65525" placeholder="'.__('Comment Content','inline-amp').'*"></textarea>
+              <textarea id="comment" class="comment-content" name="comment" maxlength="65525" placeholder="'.__('Comment Content','default').'*"></textarea>
               </p>',
               'action'=> follow_scheme_replace(get_site_url(null, '/wp-admin/admin-ajax.php?action=amp_comment_submit')),
     ));
@@ -574,8 +574,8 @@ function post_password()
 	$post   = get_post();
 	$label  = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 	$output = '<form  on="submit-success:AMP.navigateTo(url=event.response.url)" action-xhr="' . follow_scheme_replace(get_site_url(null, '/wp-admin/admin-ajax.php?action=amp_post_password')) . '" class="post-password-form" method="post">
-	<p>' . __( 'This content is password protected. To view it please enter your password below:' ,'inline-amp') . '</p>
-	<p><label for="' . $label . '">' . __( 'Password:' ,'inline-amp') . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form','inline-amp' ) . '" /></p></form>
+	<p>' . __( 'This content is password protected. To view it please enter your password below:' ,'default') . '</p>
+	<p><label for="' . $label . '">' . __( 'Password:' ,'default') . ' <input name="post_password" id="' . $label . '" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . esc_attr_x( 'Enter', 'post password form','default' ) . '" /></p></form>
     ';
     
 	return apply_filters( 'the_password_form', $output );
