@@ -1,14 +1,27 @@
-Theme Name: Inline AMP
-Text Domain: inline-amp
-Description:  InlineAMP has a traditional two-column layout, it's designed for easy-use,friendly-admin, and all settings go to the theme customizer. we used a lot of modern tech such as flex layer, Pure CSS design. Our theme page was fully supported AMP spec, which has much better SEO experiences. 
-Tags: blog,two-columns,right-sidebar,sticky-post,theme-options
-Author: Hhacker
-Author URI: https://hhacker.com
-Theme URI: https://github.com/justid/InlineAMP
-License: GNU General Public License v3 or later
+=== Theme Name ===
+Contributors: hhacker
+Requires at least: 5.3
+Tested up to: 5.3
+Requires PHP: 7.0
+License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Requires: 
-1. PHP 7 or later
-2. Wordpress 5.3
-3. [AMP plugin](https://wordpress.org/plugins/amp/)
+InlineAMP is a AMP ready wordpress theme.
+
+== Description ==
+InlineAMP has a traditional two-column layout, it's designed for easy-use,friendly-admin, and all settings go to the theme customizer. we used a lot of modern tech such as flex layer, Pure CSS design. Our theme page was fully supported AMP spec, which has much better SEO experiences. 
+
+== Frequently Asked Questions ==
+
+= Do we need plugins to pass the AMP checker?  =
+
+Yes, you need to install the AMP plugin.
+https://wordpress.org/plugins/amp/
+
+== Changelog ==
+
+= 1.0.2 =
+* Init version
+
+== Resources ==
+* ptserif.woff2 © 2010 ParaType, OFL
