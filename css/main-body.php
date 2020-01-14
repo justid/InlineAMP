@@ -126,7 +126,8 @@ a.title-img:hover amp-img.contain img {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    overflow: hidden;
+	overflow: hidden;
+	visibility:visible;
 }
 
 .flex-box {
