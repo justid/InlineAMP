@@ -1,6 +1,9 @@
     .content {
         word-break: break-word;
     }
+    .content * {
+        max-width: 100%;
+    }
     hr {
         border: none;
         background: #e6e6e6;
