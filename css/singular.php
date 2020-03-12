@@ -136,7 +136,13 @@
         font-size: 1.0714vw;
         line-height: 1.9048vw;
         color: #666666;
+        display: flex;
     } 
+
+    .content .aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+    }
 
     .content>figure {
         margin: 2.0238vw 0 2.0238vw 0;
