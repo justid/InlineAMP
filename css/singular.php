@@ -470,6 +470,7 @@
     .post-tags {
         display: flex;
         margin-top: 1.9644vw;
+	flex-wrap: wrap;
     }
     .post-tags a{
         display: inline-flex;
@@ -479,6 +480,7 @@
         padding-top: 0.6548vw;
         padding-bottom: 0.6548vw;
         margin-right: 0.3571vw;
+	margin-bottom: 0.3571vw;
         color: #666666;
         font-size: 0.8333vw;
         line-height: 0.8333vw;
