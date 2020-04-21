@@ -27,8 +27,8 @@
 
 ## Changelog
 
-* 1.0.6
-- Init version
+> v1.0.6
+> * Init version
 
 ## TODO
 
