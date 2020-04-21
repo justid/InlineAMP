@@ -25,9 +25,15 @@
 
 3. Setting AMP plugin to **Standard** Website Mode
 
+## Changelog
+
+* 1.0.6
+- Init version
+
 ## TODO
 
-Nothing there.
+1. Optimization for big screen( >= 1920 width)
+2. header area support fullwidth background image
 
 ## KEYWORDS
 
