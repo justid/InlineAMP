@@ -136,7 +136,6 @@ h2.article-title a {
 	font-size: 1.0714vw;
 	line-height: 1.9048vw;
 	color: #666666;
-	display: flex;
 } 
 
 .content .aligncenter {
@@ -650,12 +649,7 @@ margin-bottom: 0.3571vw;
 .comment-form-author {
 	margin-right: 1.3095vw;
 }
-#comments .comment-form-author,
-#comments .comment-form-email,
-#comments .comment-form-url
-{
-	display: inline-flex;
-}
+
 .comment-form-author input,
 .comment-form-email input,
 .comment-form-url input
@@ -827,7 +821,6 @@ margin-bottom: 0.3571vw;
 		font-size: 17.9995px;
 		line-height: 32.0006px;
 		color: #666666;
-		display: flex;
 	} 
 	
 	.content .aligncenter {
@@ -1341,12 +1334,7 @@ margin-bottom: 0.3571vw;
 	.comment-form-author {
 		margin-right: 21.9996px;
 	}
-	#comments .comment-form-author,
-	#comments .comment-form-email,
-	#comments .comment-form-url
-	{
-		display: inline-flex;
-	}
+
 	.comment-form-author input,
 	.comment-form-email input,
 	.comment-form-url input
