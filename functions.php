@@ -8,6 +8,21 @@ function theme_support() {
 	add_theme_support('post-thumbnails');
 	add_theme_support('automatic-feed-links');
 	add_theme_support( 'title-tag' );
+
+	add_theme_support(
+		'custom-header',
+		apply_filters(
+			'my_custom_header_args',
+			array(
+				'default-image'    => '',
+				'header-text' => false,
+				'width'            => 2000,
+				'height'           => 1200,
+				'flex-height'      => true,
+				'video'            => false,
+			)
+		)
+	);
 }
 
 

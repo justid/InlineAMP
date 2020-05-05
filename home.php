@@ -18,7 +18,11 @@
         <?php if (has_nav_menu('primary')):?>
         <input type="checkbox" id="header-menu-button"/>
         <?php endif; ?>
-        <header id="commonTop">
+		<header id="commonTop"
+		<?php if ( get_header_image() ) : ?>
+			style="background: url('<?php header_image(); ?>') 100% / cover no-repeat;"
+		<?php endif; ?>
+		>
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <?php get_template_part('components/tagline'); ?>
