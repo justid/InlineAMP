@@ -50,7 +50,7 @@ header {
 }
 
 .tagline-sub {
-    color: #8A8A8A;
+    color: rgba(255,255,255,0.5);
     font-size: 0.9524vw;
     line-height: 1.6667vw;
     margin-bottom: 3.5119vw;
@@ -143,7 +143,7 @@ header {
 	}
 	
 	.tagline-sub {
-		color: #8A8A8A;
+		color: rgba(255,255,255,0.5);
 		font-size: 16.0003px;
 		line-height: 28.0006px;
 		margin-bottom: 58.9999px;
