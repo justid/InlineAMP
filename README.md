@@ -27,13 +27,17 @@
 
 ## Changelog
 
+> v1.1.0
+>* Optimization for big screen( >= 1680 width)
+>* header area support fullwidth background image
+
+
 > v1.0.6
-> * Init version
+>* Init version
 
 ## TODO
 
-1. Optimization for big screen( >= 1920 width)
-2. header area support fullwidth background image
+Nothing there
 
 ## KEYWORDS
 
