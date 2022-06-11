@@ -28,11 +28,6 @@ function theme_support() {
 
 add_action( 'after_setup_theme', 'theme_support' );
 
-function my_admin_bar_init() {
-    remove_action('wp_head', '_admin_bar_bump_cb');
-}
-add_action('admin_bar_init', 'my_admin_bar_init');
-
 function my_post_thumbnail() {
     $img_url = wp_get_attachment_url(get_post_thumbnail_id());
     
