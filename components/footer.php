@@ -20,7 +20,7 @@
             <p>
                 <a href="<?php echo esc_url( __( 'https://wordpress.org/','default') ); ?>"><?php _e( 'Powered by WordPress','default'); ?></a> 
                     • 
-                <a href="https://hhacker.com">Theme Inline AMP</a>
+                <a href="https://github.com/justid/InlineAMP">Theme Inline AMP</a>
             </p>
         </div>
     </div>
