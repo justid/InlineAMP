@@ -32,9 +32,9 @@
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="tagline">
-                    <?php
-                        the_archive_title( '<div class="tagline-main">', '</div>' );
-                    ?>
+                    <div class="tagline-main">
+                        <?php echo strip_tags(get_the_archive_title()); ?>
+                    </div>
                 </div>
             </div>
         </header>
