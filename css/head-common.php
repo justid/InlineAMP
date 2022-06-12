@@ -1,5 +1,6 @@
 header {
     width: 100vw;
+    height: 14.5833vw;
     background: #222222;
     display: flex;
     justify-content: center;
@@ -7,6 +8,7 @@ header {
 .top-container {
     width: 71.4286vw;
     height: 100%;
+    position: relative;
 }
 .title-menus-area {
     display: flex;
@@ -30,6 +32,8 @@ header {
     width: 100%;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    top: 5.0833vw;
 }
 .tagline-main {
     color: white;
@@ -53,7 +57,6 @@ header {
     color: rgba(255,255,255,0.5);
     font-size: 0.9524vw;
     line-height: 1.6667vw;
-    margin-bottom: 3.5119vw;
 }
 
 .tagline-sub a {
@@ -182,6 +185,9 @@ header {
 }
 
 @media only screen and (max-width: 640px){
+    header {
+        height: 33.3333vw;
+    }
     .top-container {
         width: 100%;
     }
@@ -197,8 +203,7 @@ header {
         line-height: 3.7333vw;
     }
     .tagline {
-        margin: 6vw auto 0 auto;
-        width:89.3333vw;
+        top: 13.3333vw;
     }
     .tagline-main {
         font-size: 5.0667vw;

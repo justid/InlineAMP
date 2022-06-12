@@ -25,12 +25,13 @@
         }
         /* search box */
         .search-box {
-            margin-top: 0;
-            margin-bottom: 3.869vw;
             display: flex;
+            width: 100%;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            position: absolute;
+            top: 5.1563vw;
         }
         .search-box h2 {
             font-size: 2.0238vw;
@@ -146,7 +147,10 @@
         <?php if (has_nav_menu('primary')):?>
         <input type="checkbox" id="header-menu-button"/>
         <?php endif; ?>
-        <header id="commonTop">
+        <header id="commonTop"
+        <?php if ( get_header_image() ) : ?>
+			style="background: url('<?php header_image(); ?>') 100% / cover no-repeat;"
+		<?php endif; ?>>
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="search-box">
