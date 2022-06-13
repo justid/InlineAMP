@@ -44,6 +44,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            opacity: 0.9;
         }
 
         .widget_search {
