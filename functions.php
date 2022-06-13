@@ -463,3 +463,33 @@ function reset_excerpt_length($length) {
     return $new_length;
 }
 add_filter('excerpt_length', 'reset_excerpt_length');
+
+// hook gravatar
+function site_get_avatar($avatar, $id_or_email, $args)
+{
+    $class = array( 'avatar', 'avatar-' . (int) $args['size'], 'photo' );
+    if ( ! $args['found_avatar'] || $args['force_default'] ) {
+        $class[] = 'avatar-default';
+    }
+ 
+    if ( $args['class'] ) {
+        if ( is_array( $args['class'] ) ) {
+            $class = array_merge( $class, $args['class'] );
+        } else {
+            $class[] = $args['class'];
+        }
+    }
+    $avatar = sprintf(
+        "<img alt='%s' src='%s' class='%s' height='%d' width='%d'/>",
+        esc_attr( $args['alt'] ),
+        esc_url( "https://gravatar.cat.net/avatar/".md5($id_or_email->comment_author_email) ),
+        esc_attr( implode( ' ', $class ) ),
+        (int) $args['height'],
+        (int) $args['width'],
+    );
+    return $avatar;
+}
+
+add_filter('pre_get_avatar', 'site_get_avatar', 10, 3);
+
+
