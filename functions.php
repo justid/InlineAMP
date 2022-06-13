@@ -8,6 +8,7 @@ function theme_support() {
 	add_theme_support('post-thumbnails');
 	add_theme_support('automatic-feed-links');
 	add_theme_support( 'title-tag' );
+    remove_theme_support('widgets-block-editor');
 
 	add_theme_support(
 		'custom-header',
