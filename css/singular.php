@@ -1676,3 +1676,17 @@ margin-bottom: 0.3571vw;
 		line-height: 2.9333vw;
 	}
 }
+
+/* fix for code content */
+.content p[class^="amp-wp"]{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0.4vw 1vw 0.4vw 1vw;
+	line-height: 1;
+}
+
+@media only screen and (max-width: 640px) {
+	.content p[class^="amp-wp"]{
+		padding: 1vw 3vw 1vw 3vw;
+	}
+}
