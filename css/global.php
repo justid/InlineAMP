@@ -12,8 +12,8 @@ body {
 }
 @font-face {
     font-family: 'iconfont';
-    src: url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.eot?20200105#iefix') format('embedded-opentype'),
-        url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.woff2?20200105') format('woff2'),
+    src:url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.woff2?20200105') format('woff2'), 
+        url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.eot?20200105#iefix') format('embedded-opentype'),
         url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.woff?20200105') format('woff'),
         url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.ttf?20200105') format('truetype'),
         url('<?php echo get_template_directory_uri() ?>/fonts/iconfont.svg?20200105#iconfont') format('svg');

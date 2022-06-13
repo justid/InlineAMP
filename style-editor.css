@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'iconfont';
-    src: url('fonts/iconfont.eot?20200105#iefix') format('embedded-opentype'),
-        url('fonts/iconfont.woff2?20200105') format('woff2'),
+    src: url('fonts/iconfont.woff2?20200105') format('woff2'),
+        url('fonts/iconfont.eot?20200105#iefix') format('embedded-opentype'),
         url('fonts/iconfont.woff?20200105') format('woff'),
         url('fonts/iconfont.ttf?20200105') format('truetype'),
         url('fonts/iconfont.svg?20200105#iconfont') format('svg');
