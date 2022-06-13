@@ -10,9 +10,6 @@
 <?php load_css("css/main", 'sidebar') ?>  
 <?php load_css("css/footer", 'common') ?>
 
-        main {
-            justify-content: center;
-        }
         .main-container {
             width: 59.5238vw;
         }
