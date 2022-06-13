@@ -495,4 +495,10 @@ add_filter('pre_get_avatar', 'site_get_avatar', 10, 3);
 // disable block editor
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
+// add editor style for theme
+function editor_styles() {
+    add_editor_style("style-editor.css");
+}
+add_action( "init", "editor_styles");
+
 
