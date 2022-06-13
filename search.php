@@ -155,7 +155,7 @@
             <div class="top-container">
                 <?php get_template_part('components/title-menus'); ?>
                 <div class="search-box">
-                    <h2><?php echo _e('Search Results','default') ?></h2>
+                    <h2><?php echo sprintf( __( 'Search Results %1$s %2$s' ), '', '') ?></h2>
                     <form target="_top" role="search" method="get" class="search-form" action="<?php echo follow_scheme_replace(get_site_url()) ?>">
                         <input type="text" required class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder','default' )?>" value="<?php echo get_search_query()?>" name="s" />
                         <button type="submit" class="search-submit"></button>
