@@ -405,7 +405,6 @@ function my_sidebar_registration() {
     unregister_widget('WP_Widget_Tag_Cloud');   // remove tag cloud
     unregister_widget('WP_Widget_Search');   // remove search
     
-    register_widget('my_search');
     register_widget('my_profile');
 
     register_sidebar(array(
