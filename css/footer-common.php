@@ -16,7 +16,7 @@ footer {
 
 .footer-container .footer-copyright {
     margin-bottom: 1.1905vw;
-    margin-top: 2.893vw;
+    margin-top: 2.3438vw;
 }
 
 .footer-container .footer-copyright, .footer-container .footer-copyright a{
