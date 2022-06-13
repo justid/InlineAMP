@@ -233,6 +233,53 @@ function follow_scheme_replace($url) {
     return preg_replace('/^(http|https):\/\//', '//', $url, 1);
 }
 
+// search
+class my_search extends WP_Widget {
+	public function __construct() {
+		$widget_ops = array(
+			'classname'                   => 'widget_search',
+			'description'                 => __( 'A search form for your site.' ,'default'),
+			'customize_selective_refresh' => true,
+		);
+		parent::__construct( 'search', _x( 'Search', 'Search widget','default' ), $widget_ops );
+	}
+
+	public function widget( $args, $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+
+		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+		echo $args['before_widget'];
+		if ( $title ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+		}
+
+        echo 
+        '<form target="_top" role="search" method="get" class="search-form" action="'.trailingslashit(follow_scheme_replace(get_site_url())).'">
+            <input required type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder','default' ) . '" value="' . get_search_query() . '" name="s" />
+            <button type="submit" class="search-submit"></button>
+        </form>';
+
+        echo $args['after_widget'];
+	}
+
+	public function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+		$title    = $instance['title'];
+		?>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','default' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></label></p>
+		<?php
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		$instance          = $old_instance;
+		$new_instance      = wp_parse_args( (array) $new_instance, array( 'title' => '' ) );
+		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		return $instance;
+	}
+
+}
+
 // profile
 class my_profile extends WP_Widget {
     protected $registered = false;
@@ -405,6 +452,7 @@ function my_sidebar_registration() {
     unregister_widget('WP_Widget_Tag_Cloud');   // remove tag cloud
     unregister_widget('WP_Widget_Search');   // remove search
     
+    register_widget('my_search');
     register_widget('my_profile');
 
     register_sidebar(array(
