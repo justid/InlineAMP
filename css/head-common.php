@@ -4,6 +4,7 @@ header {
     background: #222222;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 .top-container {
     width: 71.4286vw;
@@ -69,6 +70,7 @@ header {
 }
 
 /* go top button */
+
 .scrolltop-wrap {
     box-sizing: border-box;
     position: absolute;

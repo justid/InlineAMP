@@ -4,6 +4,7 @@ footer {
     background: #222222;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 .footer-container {
     width: 71.4286vw;

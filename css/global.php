@@ -4,6 +4,7 @@ body {
     flex-direction: column;
 	font-family: 'PT Serif',-apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif, serif;
 	background: white;
+    min-height: 100vh;
 }
 
 *:focus{

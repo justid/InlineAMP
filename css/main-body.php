@@ -6,6 +6,7 @@ main {
     justify-content: space-between;
     padding-top: 2.9762vw;
     position: relative;
+    flex-grow: 1;
 }
 .main-container {
     width: 48.2143vw;
