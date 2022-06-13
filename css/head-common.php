@@ -74,9 +74,9 @@ header {
 .scrolltop-wrap {
     box-sizing: border-box;
     position: absolute;
-    top: 11.6667vw;
-    right: -3.9048vw;
-    bottom: 0;
+    right: -4.1667vw;
+    opacity: 1;
+    visibility: hidden;
 }
 
 .go-top {
@@ -90,13 +90,9 @@ header {
     justify-content: center;
     align-items: center;
     display: flex;
-    cursor: pointer;
-    
+    cursor: pointer; 
     position: fixed;
-    position: -webkit-sticky;
-    position: sticky;
-    top: -5.9524vw;
-    transform: translateY(100vh);
+    bottom: 4.6354vw;
     overflow: hidden;
 }
 
