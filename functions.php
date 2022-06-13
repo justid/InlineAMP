@@ -492,4 +492,7 @@ function site_get_avatar($avatar, $id_or_email, $args)
 
 add_filter('pre_get_avatar', 'site_get_avatar', 10, 3);
 
+// disable block editor
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
 
