@@ -149,6 +149,45 @@ function my_customize_register($wp_customize) {
             'height' => 32, 
         )
     ) );
+
+    // add auto featured image setting
+    $wp_customize->add_section( 'auto_featured_image' , array(
+        'title'      => __( 'Auto featured image ','default'),
+        'description' => __('Auto-generation featured image for blog posts','default'),
+    ) );
+
+    $wp_customize->add_setting( 'rapidapi_translator' , array(
+        'default'   => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
+    ) );
+
+    $wp_customize->add_control(
+        'input_rapidapi_translator', 
+        array(
+            'label'    => __( 'RapidAPI','default'),
+            'description' => __( '<a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/" target="_blank">Get Microsoft Translator API Key</a><br><a href="https://rapidapi.com/ai-box-ai-box-default/api/text-analysis10/" target="_blank">Get Text Analysis API Key</a>' ),
+            'section'  => 'auto_featured_image',
+            'settings' => 'rapidapi_translator',
+            'type'     => 'text',
+        )
+    );
+
+    $wp_customize->add_setting( 'pixabay_apikey' , array(
+        'default'   => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
+    ) );
+
+    $wp_customize->add_control(
+        'input_pixabay_apikey', 
+        array(
+            'label'    => __( 'Pixabay apikey','default'),
+            'section'  => 'auto_featured_image',
+            'settings' => 'pixabay_apikey',
+            'type'     => 'text',
+        )
+    );
     
 };
 
@@ -500,5 +539,150 @@ function editor_styles() {
     add_editor_style("style-editor.css");
 }
 add_action( "init", "editor_styles");
+
+function get_translate($text)
+{
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=en&api-version=3.0&profanityAction=NoAction&textType=plain",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "[\r
+        {\r
+            \"Text\": \"".$text."\"\r
+        }\r
+    ]",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: microsoft-translator-text.p.rapidapi.com",
+            "X-RapidAPI-Key: ".get_theme_mod('rapidapi_translator', ''),
+            "content-type: application/json"
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if (!$err) {
+        // get the translation success
+        $response = json_decode($response, true);
+        return $response[0]['translations'][0]["text"];
+    } else {
+        return '';
+    }
+}
+
+function get_word_anlytic($text)
+{
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://text-analysis10.p.rapidapi.com/text_analysis",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "text=".urlencode($text)."&lang=en",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: text-analysis10.p.rapidapi.com",
+            "X-RapidAPI-Key: a895888271msh523e523a1941d5ap1d422cjsn6e642a197918",
+            "content-type: application/x-www-form-urlencoded"
+        ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+        return [];
+    } else {
+        $ret = json_decode($response, true);
+        return $ret['tokens'];
+    }
+}
+
+function get_image_pixabay($word)
+{
+    $ret = file_get_contents("https://pixabay.com/api?key=".get_theme_mod('pixabay_apikey', '')."&q=".urlencode($word)."&image_type=photo&orientation=horizontal&safesearch=true&per_page=10");
+    $search_result = json_decode($ret, true);
+    if (!empty($search_result)) {
+        return $search_result['hits'][rand() % 3]['webformatURL'];
+    } else {
+        return '';
+    }
+}
+
+// auto generate featured image when post is created/updated
+function auto_featured_image($post_ID, $post, $update)
+{
+    $check = true;
+    $check = $check && (get_the_post_thumbnail($post_ID) == '');
+    $check = $check && (get_theme_mod('pixabay_apikey', '') != '');
+    $check = $check && (get_theme_mod('rapidapi_translator', '') != '');
+    
+    if ($check === true)
+    {
+        $translate = get_translate($post->post_title);
+        $keywords = get_word_anlytic($translate);
+        $final_image = '';
+        
+        foreach ($keywords as $key=>$words) {
+            // proper noun
+            if ($words == 'PROPN') {
+                $final_image = get_image_pixabay($key);
+                if (rand() % 2 == 0) {
+                    break;
+                }
+                
+            }
+            if ($words == 'NOUN') {
+                $final_image= get_image_pixabay($key);
+                if (rand() % 2 == 0) {
+                    break;
+                }
+            }
+        }
+
+        if (empty($final_image)) {
+            foreach ($keywords as $key=>$words) {
+                if ($words != 'PUNCT') { 
+                    $final_image = get_image_pixabay($key);
+                    break;
+                }
+            }
+        }
+        
+        // final feautured image;
+        $upload_dir = wp_upload_dir();
+        $image_name = md5($final_image);
+        $filename = $upload_dir['path'] . '/' . $image_name . '.jpg';
+
+        $featured_img = imagecreatefromjpeg($final_image);
+        imagejpeg( $featured_img, $filename, 100 );
+        
+        $attachment = array(
+            'guid'           => $upload_dir['url'] . '/' . $image_name . '.jpg', 
+            'post_mime_type' => 'image/jpeg',
+            'post_title'     => $image_name,
+            'post_content'   => '',
+            'post_status'    => 'inherit'
+            );
+        $attach_id = wp_insert_attachment($attachment, $filename, $post_ID);
+        set_post_thumbnail( $post_ID, $attach_id );
+    }
+}
+add_action('wp_insert_post', 'auto_featured_image', 10, 3);
 
 
