@@ -27,13 +27,27 @@
 
 ## Changelog
 
-> v1.1.0
->* Optimization for big screen( >= 1680 width)
->* header area support fullwidth background image
+> v1.2.0
 
+* remove my profile widget
+
+* change gravatar address to cat.net cdn
+
+* disabled block editor
+
+* add css style for editor
+
+* add auto featured image
+
+> v1.1.0
+
+* Optimization for big screen( >= 1680 width)
+
+* header area support fullwidth background image
 
 > v1.0.6
->* Init version
+
+* Init version
 
 ## TODO
 
