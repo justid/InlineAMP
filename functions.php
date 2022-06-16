@@ -617,8 +617,8 @@ function get_image_pixabay($word)
 {
     $ret = file_get_contents("https://pixabay.com/api?key=".get_theme_mod('pixabay_apikey', '')."&q=".urlencode($word)."&image_type=photo&orientation=horizontal&safesearch=true&per_page=10");
     $search_result = json_decode($ret, true);
-    if (!empty($search_result)) {
-        return $search_result['hits'][rand() % 3]['webformatURL'];
+    if (!empty($search_result) && count($search_result['hits']) > 0) {
+        return $search_result['hits'][rand() % count($search_result['hits'])]['webformatURL'];
     } else {
         return '';
     }
@@ -628,10 +628,12 @@ function get_image_pixabay($word)
 function auto_featured_image($post_ID, $post, $update)
 {
     $check = true;
+    $check = $check && ($update === true);
+    $check = $check && ($post->post_status  != 'auto-draft' && $post->post_status  != 'draft' );
     $check = $check && (get_the_post_thumbnail($post_ID) == '');
     $check = $check && (get_theme_mod('pixabay_apikey', '') != '');
     $check = $check && (get_theme_mod('rapidapi_translator', '') != '');
-    
+
     if ($check === true)
     {
         $translate = get_translate($post->post_title);
@@ -663,24 +665,26 @@ function auto_featured_image($post_ID, $post, $update)
                 }
             }
         }
-        
-        // final feautured image;
-        $upload_dir = wp_upload_dir();
-        $image_name = md5($final_image);
-        $filename = $upload_dir['path'] . '/' . $image_name . '.jpg';
 
-        $featured_img = imagecreatefromjpeg($final_image);
-        imagejpeg( $featured_img, $filename, 100 );
-        
-        $attachment = array(
-            'guid'           => $upload_dir['url'] . '/' . $image_name . '.jpg', 
-            'post_mime_type' => 'image/jpeg',
-            'post_title'     => $image_name,
-            'post_content'   => '',
-            'post_status'    => 'inherit'
-            );
-        $attach_id = wp_insert_attachment($attachment, $filename, $post_ID);
-        set_post_thumbnail( $post_ID, $attach_id );
+        if (!empty($final_image)) {
+            // final feautured image;
+            $upload_dir = wp_upload_dir();
+            $image_name = md5($final_image);
+            $filename = $upload_dir['path'] . '/' . $image_name . '.jpg';
+
+            $featured_img = imagecreatefromjpeg($final_image);
+            imagejpeg( $featured_img, $filename, 100 );
+
+            $attachment = array(
+                'guid'           => $upload_dir['url'] . '/' . $image_name . '.jpg', 
+                'post_mime_type' => 'image/jpeg',
+                'post_title'     => $image_name,
+                'post_content'   => '',
+                'post_status'    => 'inherit'
+                );
+            $attach_id = wp_insert_attachment($attachment, $filename, $post_ID);
+            set_post_thumbnail( $post_ID, $attach_id );
+        }
     }
 }
 add_action('wp_insert_post', 'auto_featured_image', 10, 3);
