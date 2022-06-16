@@ -689,4 +689,7 @@ function auto_featured_image($post_ID, $post, $update)
 }
 add_action('wp_insert_post', 'auto_featured_image', 10, 3);
 
+// disable wptexturize
+remove_filter('the_content', 'wptexturize');
+
 
