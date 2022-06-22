@@ -95,6 +95,10 @@
             margin-bottom: 29.7619vw;
         }
 
+        main {
+            justify-content: center;
+        }
+
         /* mobile */
         @media only screen and (max-width: 640px){
             .main-container {
