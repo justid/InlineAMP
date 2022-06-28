@@ -157,6 +157,7 @@ margin-right: auto;
 	line-height: 1.9048vw;
 	margin-top: 2.0238vw;  
 	margin-bottom: 2.0238vw;  
+    color: #333333;
 }
 
 .content figcaption {
