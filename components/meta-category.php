@@ -6,7 +6,7 @@
 ?>
 <?php if (is_sticky()):?>
     <div class="sticky-tag">
-        <span class="sticky-text">Sticky post</span>
+        <span class="sticky-text"></span>
     </div>
 <?php endif; ?>
 </div>
