@@ -718,20 +718,20 @@ amp-social-share.rounded:hover {
 
 @media only screen and (max-width: 640px) {
     .likes-form {
-        margin-bottom: 8vw;
+        margin-bottom: min(8vw, 30px);
     }
 
     .article-info .post-meta-box a.edit-link:before {
-        margin-right: 3.2133vw;
-        width: 0.1333vw;
-        height: 1.68vw;
+        margin-right: min(3.2133vw, 12px);
+        width: min(0.1333vw, 1px);
+        height: min(1.68vw, 6px);
     }
 
     h2.article-title {
-        margin-top: 5.3333vw;
-        font-size: 5.0667vw;
-        line-height: 6.9334vw;
-        margin-bottom: 5.3333vw;
+        margin-top: min(5.3333vw, 20px);
+        font-size: min(5.0667vw, 16px);
+        line-height: min(6.9334vw, 26px);
+        margin-bottom: min(5.3333vw, 20px);
     }
 
     .article-info .post-meta-box {
@@ -739,19 +739,19 @@ amp-social-share.rounded:hover {
     }
 
     .content blockquote {
-        margin-top: 6.4666vw;
-        margin-bottom: 6.4666vw;
-        padding-left: 8vw;
+        margin-top: min(6.4666vw, 24px);
+        margin-bottom: min(6.4666vw, 24px);
+        padding-left: min(8vw, 30px);
     }
 
     .content blockquote:before {
-        font-size: 4.7201vw;
-        margin-right: 3.7333vw;
+        font-size: min(4.7201vw, 17px);
+        margin-right: min(3.7333vw, 14px);
     }
 
     .content blockquote p {
-        font-size: 4vw;
-        line-height: 5.6vw;
+        font-size: min(4vw, 15px);
+        line-height: min(5.6vw, 21px);
     }
 
     .content h1,
@@ -760,157 +760,156 @@ amp-social-share.rounded:hover {
     .content h4,
     .content h5,
     .content h6 {
-        margin-top: 5.3333vw;
-        margin-bottom: 5.3333vw;
+        margin-top: min(5.3333vw, 20px);
+        margin-bottom: min(5.3333vw, 20px);
     }
 
     .content h1 {
-        font-size: 5.6vw;
+        font-size: min(5.6vw, 21px);
     }
 
     .content h2 {
-        font-size: 5.3333vw;
+        font-size: min(5.3333vw, 20px);
     }
 
     .content h3 {
-        font-size: 5.0667vw;
+        font-size: min(5.0667vw, 19px);
     }
 
     .content h4 {
-        font-size: 4.8vw;
+        font-size: min(4.8vw, 18px);
     }
 
     .content h5 {
-        font-size: 4.5333vw;
+        font-size: min(4.5333vw, 17px);
     }
 
     .content h6 {
-        font-size: 4.2667vw;
+        font-size: min(4.2667vw, 16px);
     }
 
     .content p {
-        font-size: 4vw;
-        line-height: 5.8667vw;
-        padding: 1vw 3vw 1vw 3vw;
+        font-size: min(4vw, 15px);
+        line-height: min(5.8667vw, 22px);
+        padding: min(1vw, 4px) min(3vw, 12px) min(1vw, 4px) min(3vw, 12px);
     }
 
     .content ul,
     .content ol {
-        padding-left: 3.3333vw;
-        font-size: 4vw;
-        line-height: 5.8667vw;
-        margin-top: 5.3333vw;
-        margin-bottom: 5.3333vw;
+        padding-left: min(3.3333vw, 12px);
+        font-size: min(4vw, 15px);
+        line-height: min(5.8667vw, 22px);
+        margin-top: min(5.3333vw, 20px);
+        margin-bottom: min(5.3333vw, 20px);
     }
 
     .content figcaption {
-        font-size: 3.2vw;
-        margin-top: 0.6666vw;
+        font-size: min(3.2vw, 12px);
+        margin-top: min(0.6666vw, 2px);
     }
 
     .content>figure {
-        margin: 4.5333vw 0 4.5333vw 0;
+        margin: min(4.5333vw, 17px) 0 min(4.5333vw, 17px) 0;
     }
 
     .wp-block-cover-image,
     .wp-block-cover {
-        min-height: 50vw;
-        margin: 4.5333vw 0 4.5333vw 0;
+        min-height: min(50vw, 187px);
+        margin: min(4.5333vw, 17px) 0 min(4.5333vw, 17px) 0;
     }
 
     .wp-block-gallery ul>li {
-        margin-bottom: 2.1333vw;
+        margin-bottom: min(2.1333vw, 8px);
     }
 
     .content .wp-block-code {
-        padding: 2.1333vw;
-        font-size: 3.3vw;
-        line-height: 4.2667vw;
+        padding: min(2.1333vw, 8px);
+        font-size: min(3.3vw, 12px);
+        line-height: min(4.2667vw, 16px);
     }
 
     .wp-block-table table {
-        font-size: 3.4667vw;
+        font-size: min(3.4667vw, 13px);
     }
 
     .wp-block-file {
-        padding-left: 3.4667vw;
-        padding-right: 2.6667vw;
-        padding-top: 1.3333vw;
-        padding-bottom: 1.3333vw;
-        margin: 4.5333vw 0 4.5333vw 0;
-        font-size: 3.4667vw;
-        line-height: 5.3333vw;
+        padding-left: min(3.4667vw, 13px);
+        padding-right: min(2.6667vw, 10px);
+        padding-top: min(1.3333vw, 5px);
+        padding-bottom: min(1.3333vw, 5px);
+        margin: min(4.5333vw, 17px) 0 min(4.5333vw, 17px) 0;
+        font-size: min(3.4667vw, 13px);
+        line-height: min(5.3333vw, 20px);
     }
 
     .wp-block-file a:last-child,
     a.wp-block-file__button {
-        padding: 1.6vw 3.2vw 1.6vw 3.2vw;
-        border: 0.1333vw #DBB302 solid;
-        line-height: 2.1333vw;
+        padding: min(1.6vw, 8px) min(3.2vw, 12px) min(1.6vw, 8px) min(3.2vw, 12px);
+        border: min(0.1333vw, 1px) #DBB302 solid;
+        line-height: min(2.1333vw, 8px);
     }
 
     .wp-block-file a:last-child:after,
     a.wp-block-file__button:after {
-        font-size: 2.6667vw;
-        margin-left: 2.4vw;
+        font-size: min(2.6667vw, 10px);
+        margin-left: min(2.4vw, 9px);
     }
 
     .nav-links {
-        margin-top: 4.5333vw;
-        margin-bottom: 4.5333vw;
+        margin-top: min(4.5333vw, 17px);
+        margin-bottom: min(4.5333vw, 17px);
     }
 
     .wp-block-button {
-        margin: 4.5333vw 0 4.5333vw 0;
+        margin: min(4.5333vw, 17px) 0 min(4.5333vw, 17px) 0;
     }
 
     .likes-button {
-        width: 16vw;
-        height: 16vw;
-        border: 0.1333vw solid #C4C4C4;
-        font-size: 2.6667vw;
-        margin-top: 2.6667vw;
+        width: min(16vw, 60px);
+        height: min(16vw, 60px);
+        border: min(0.1333vw, 1px) solid #C4C4C4;
+        font-size: min(2.6667vw, 10px);
+        margin-top: min(2.6667vw, 10px);
     }
 
     .likes-button:before {
-        font-size: 5.6vw;
-        margin-bottom: 1.8667vw;
+        font-size: min(5.6vw, 21px);
+        margin-bottom: min(1.8667vw, 7px);
     }
 
     .post-nav {
-        margin-bottom: 12.6667vw;
+        margin-bottom: min(12.6667vw, 48px);
     }
 
     .post-nav .nav-previous a,
     .post-nav .nav-next a {
-        font-size: 3.7333vw;
+        font-size: min(3.7333vw, 14px);
     }
 
 
     .social-share-box {
-        width: 6.6667vw;
-        height: 6.6667vw;
-        margin-right: 4vw;
+        width: min(6.6667vw, 25px);
+        height: min(6.6667vw, 25px);
+        margin-right: min(4vw, 15px);
     }
 
     .post-tags {
-        margin-top: 8.8vw;
-        ;
+        margin-top: min(8.8vw, 33px);
     }
 
     .post-tags a {
-        padding-left: 3.5333vw;
-        padding-right: 3.5333vw;
-        padding-top: 1.7333vw;
-        padding-bottom: 1.7333vw;
-        margin-right: 1.3333vw;
-        font-size: 2.2vw;
-        line-height: 2.2vw;
+        padding-left: min(3.5333vw, 13px);
+        padding-right: min(3.5333vw, 13px);
+        padding-top: min(1.7333vw, 6px);
+        padding-bottom: min(1.7333vw, 6px);
+        margin-right: min(1.3333vw, 5px);
+        font-size: min(2.2vw, 8px);
+        line-height: min(2.2vw, 8px);
     }
 
     .comments>ul .comment-author .avatar {
-        width: 10.6667vw;
-        height: 10.6667vw;
+        width: min(10.6667vw, 40px);
+        height: min(10.6667vw, 40px);
         left: 0;
     }
 
@@ -919,81 +918,81 @@ amp-social-share.rounded:hover {
     }
 
     .comments>ul .comment-body {
-        padding-left: 15.7067vw;
-        padding-bottom: 1.8667vw;
-        padding-top: 5.3333vw;
+        padding-left: min(15.7067vw, 59px);
+        padding-bottom: min(1.8667vw, 7px);
+        padding-top: min(5.3333vw, 20px);
     }
 
     .comments>ul cite.fn a {
-        font-size: 3.7333vw;
+        font-size: min(3.7333vw, 14px);
     }
 
     .comments>ul .comment-meta a:first-child {
-        font-size: 3.2vw;
-        line-height: 3.2vw;
+        font-size: min(3.2vw, 12px);
+        line-height: min(3.2vw, 12px);
     }
 
     .comments>ul .comment-body .reply {
-        font-size: 3.7333vw;
-        top: 5.3333vw;
+        font-size: min(3.7333vw, 14px);
+        top: min(5.3333vw, 20px);
     }
 
     .comments>h2,
     .comment-respond .comment-reply-title {
-        font-size: 3.7333vw;
+        font-size: min(3.7333vw, 14px);
     }
 
     .comment-form-comment .comment-content {
-        width: 92vw;
-        height: 26.6667vw;
-        border: 0.1333vw #E6E6E6 solid;
-        padding: 4vw 3.3333vw 4vw 3.3333vw;
-        font-size: 3.4667vw;
-        line-height: 3.4667vw;
+        width: min(92vw, 345px);
+        height: min(26.6667vw, 100px);
+        border: min(0.1333vw, 1px) #E6E6E6 solid;
+        padding: min(4vw, 15px) min(3.3333vw, 12px) min(4vw, 15px) min(3.3333vw, 12px);
+        font-size: min(3.4667vw, 13px);
+        line-height: min(3.4667vw, 13px);
     }
 
     .comment-form-comment .comment-content::placeholder {
-        font-size: 3.4667vw;
-        line-height: 3.4667vw;
+        font-size: min(3.4667vw, 13px);
+        line-height: min(3.4667vw, 13px);
     }
 
 
     .comment-form>.form-submit>.submit {
-        border: 0.1333vw solid #DBB302;
-        font-size: 3.2vw;
-        line-height: 3.2vw;
-        padding: 2.8133vw 4.4vw 2.8133vw 4.4vw;
+        border: min(0.1333vw, 1px) solid #DBB302;
+        font-size: min(3.2vw, 12px);
+        line-height: min(3.2vw, 12px);
+        padding: min(2.8133vw, 11px) min(4.4vw, 16px) min(2.8133vw, 11px) min(4.4vw, 16px);
         cursor: pointer;
     }
 
     .comment-form .comment-error {
-        font-size: 3.4667vw;
+        font-size: min(3.4667vw, 13px);
     }
 
     #comments>ul>li.comment {
-        border-bottom: 0.1333vw solid #E6E6E6;
+        border-bottom: min(0.1333vw, 1px) solid #E6E6E6;
     }
 
     .comment-form-author input,
     .comment-form-email input,
     .comment-form-url input {
-        width: 92vw;
-        height: 10.6667vw;
-        border: 0.1333vw solid #E6E6E6;
-        padding: 2.5333vw;
-        font-size: 3.4667vw;
-        line-height: 3.4667vw;
+        width: min(92vw, 345px);
+        height: min(10.6667vw, 40px);
+        border: min(0.1333vw, 1px) solid #E6E6E6;
+        padding: min(2.5333vw, 9px);
+        font-size: min(3.4667vw, 13px);
+        line-height: min(3.4667vw, 13px);
     }
 
     #wp-comment-cookies-consent {
-        width: 5.3333vw;
-        height: 5.3333vw;
-        margin-right: 1.3333vw;
+        width: min(5.3333vw, 20px);
+        height: min(5.3333vw, 20px);
+        margin-right: min(1.3333vw, 5px);
     }
 
     .comment-form-cookies-consent>label {
-        font-size: 3.2vw;
-        line-height: 4.8vw;
+        font-size: min(3.2vw, 12px);
+        line-height: min(4.8vw, 18px);
     }
 
     .comment-form-cookies-consent {
@@ -1001,56 +1000,56 @@ amp-social-share.rounded:hover {
     }
 
     .post-nav .nav-previous a:before {
-        font-size: 5.3333vw;
-        margin-right: 2.8vw;
+        font-size: min(5.3333vw, 20px);
+        margin-right: min(2.8vw, 10px);
     }
 
     .post-nav .nav-next a:after {
-        font-size: 5.3333vw;
-        margin-left: 2.8vw;
+        font-size: min(5.3333vw, 20px);
+        margin-left: min(2.8vw, 10px);
     }
 
     hr {
-        height: 0.1333vw;
-        margin-top: 5.3333vw;
-        margin-bottom: 5.3333vw;
+        height: min(0.1333vw, 1px);
+        margin-top: min(5.3333vw, 20px);
+        margin-bottom: min(5.3333vw, 20px);
     }
 
     .post-password-form>p>label>input {
-        margin-left: 2.0001vw;
-        margin-right: 1.8667vw;
-        width: 42.6667vw;
-        height: 5.3333vw;
-        border-radius: 0.5333vw;
-        border: 0.1334vw #E6E6E6 solid;
-        padding-left: 2.6667vw;
-        padding-right: 2.6667vw;
+        margin-left: min(2.0001vw, 7px);
+        margin-right: min(1.8667vw, 7px);
+        width: min(42.6667vw, 160px);
+        height: min(5.3333vw, 20px);
+        border-radius: min(0.5333vw, 2px);
+        border: min(0.1334vw, 1px) #E6E6E6 solid;
+        padding-left: min(2.6667vw, 10px);
+        padding-right: min(2.6667vw, 10px);
     }
 
     .post-password-form>p>input {
-        font-size: 2.1333vw;
-        border-radius: 0.5333vw;
-        padding: 1.8934vw 2.5334vw 1.8934vw 2.5334vw;
+        font-size: min(2.1333vw, 8px);
+        border-radius: min(0.5333vw, 2px);
+        padding: min(1.8934vw, 7px) min(2.5334vw, 9px) min(1.8934vw, 7px) min(2.5334vw, 9px);
     }
 
     #comments>ul>li.comment ul .comment-body:before {
-        height: 6.6667vw;
-        width: 0.5333vw;
-        left: -3.3333vw;
-        top: 7.3334vw;
+        height: min(6.6667vw, 25px);
+        width: min(0.5333vw, 2px);
+        left: min(-3.3333vw, -12px);
+        top: min(7.3334vw, 27px);
     }
 
     #comments {
-        margin-top: 12vw;
+        margin-top: min(12vw, 45px);
     }
 
     .wp-block-table table td {
-        border: 0.2667vw #cccccc solid;
-        padding: 1.0667vw;
+        border: min(0.2667vw, 1px) #cccccc solid;
+        padding: min(1.0667vw, 4px);
     }
 
     .wp-block-gallery ul li figure>figcaption {
-        font-size: 1.7333vw;
-        line-height: 2.9333vw;
+        font-size: min(1.7333vw, 6px);
+        line-height: min(2.9333vw, 11px);
     }
 }
