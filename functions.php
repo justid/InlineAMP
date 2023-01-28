@@ -44,6 +44,7 @@ function my_customize_register($wp_customize) {
     // remove default section
     $wp_customize->remove_section('title_tagline');
     $wp_customize->remove_section('static_front_page');
+    $wp_customize->remove_section('custom_css');
     
     $wp_customize->add_section( 'header_setting' , array(
         'title'      => __( 'Header Setting','default'),
@@ -107,7 +108,29 @@ function my_customize_register($wp_customize) {
             'settings' => 'body_js',
             'type'     => 'textarea',
         )
-    );    
+    );   
+
+    /* Addtional CSS */
+    $wp_customize->add_section( 'more_css' , array(
+        'title'      => __( 'Additional CSS','default'),
+        'description' => __('You can paste your additional css code here.','default'),
+    ) );
+
+    $wp_customize->add_setting( 'header_css' , array(
+        'default'   => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'do_nothing',
+    ) );
+
+    $wp_customize->add_control(
+        'input_header_css', 
+        array(
+            'label'    => __( 'Insert to Header','default'),
+            'section'  => 'more_css',
+            'settings' => 'header_css',
+            'type'     => 'textarea',
+        )
+    );
     
     $wp_customize->add_control(
         'input_blog_title', 

@@ -47,7 +47,7 @@ input[type="submit"]
 }
 
 <?php
-$styles = wp_get_custom_css();
+$styles = get_theme_mod('header_css', '');
 if ($styles || is_customize_preview()) {
     echo strip_tags($styles);
 }
