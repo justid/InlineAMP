@@ -632,6 +632,7 @@ function auto_featured_image($post_ID, $post, $update)
     $check = $check && ($update === true);
     $check = $check && ($post->post_status  != 'auto-draft' && $post->post_status  != 'draft' );
     $check = $check && (get_the_post_thumbnail($post_ID) == '');
+    $check = $check && ($post->post_type == 'post');
     $check = $check && (get_theme_mod('pixabay_apikey', '') != '');
     $check = $check && (get_theme_mod('rapidapi_translator', '') != '');
 
