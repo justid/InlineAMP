@@ -709,6 +709,7 @@ function auto_featured_image($post_ID, $post, $update)
                 'post_status'    => 'inherit'
                 );
             $attach_id = wp_insert_attachment($attachment, $filename, $post_ID);
+            wp_update_attachment_metadata( $attach_id, wp_generate_attachment_metadata( $attach_id, $filename ) );
             set_post_thumbnail( $post_ID, $attach_id );
         }
     }
