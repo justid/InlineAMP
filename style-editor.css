@@ -150,11 +150,10 @@ h2.article-title a {
 }
 
 .content p {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0.4vw 1vw 0.4vw 1vw;
-    line-height: 1;
+    margin-top: 2.0238vw;
+    margin-bottom: 2.0238vw;
     font-size: 1.0714vw;
+    line-height: 1.9048vw;
     color: #666666;
 }
 
