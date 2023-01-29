@@ -527,7 +527,7 @@ function reset_excerpt_length($length) {
 add_filter('excerpt_length', 'reset_excerpt_length');
 
 function my_get_avatar($avatar) {
-    $avatar = str_replace(array("www.gravatar.com/avatar","0.gravatar.com/avatar","1.gravatar.com/avatar","2.gravatar.com/avatar"),"cravatar.cn/avatar",$avatar);
+    $avatar = str_replace(array("secure.gravatar.com/avatar", "www.gravatar.com/avatar","0.gravatar.com/avatar","1.gravatar.com/avatar","2.gravatar.com/avatar"),"cravatar.cn/avatar",$avatar);
     return $avatar;
 }
 add_filter('get_avatar', 'my_get_avatar');
