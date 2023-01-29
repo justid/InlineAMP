@@ -625,9 +625,10 @@ function get_image_pixabay($word)
     }
 }
 
-// auto generate featured image when post is created/updated
-function auto_featured_image($post_ID, $post, $update)
+add_action('insert_featured_image','auto_featured_image', 10, 3);
+function my_insert_post($post_ID, $post, $update)
 {
+    // async call to generate featured image
     $check = true;
     $check = $check && ($update === true);
     $check = $check && ($post->post_status  != 'auto-draft' && $post->post_status  != 'draft' );
@@ -636,37 +637,60 @@ function auto_featured_image($post_ID, $post, $update)
     $check = $check && (get_theme_mod('pixabay_apikey', '') != '');
     $check = $check && (get_theme_mod('rapidapi_translator', '') != '');
 
-    if ($check === true)
-    {
-        $translate = get_translate($post->post_title);
-        $keywords = get_word_anlytic($translate);
-        $final_image = '';
-        
-        foreach ($keywords as $key=>$words) {
-            // proper noun
-            if ($words == 'PROPN') {
-                $final_image = get_image_pixabay($key);
-                if (rand() % 2 == 0) {
-                    break;
-                }
-                
+    if ($check === true) {
+        if (defined('XMLRPC_REQUEST')) {
+            if (false === wp_get_schedule('insert_featured_image', array($post_ID, $post, $update))) {
+                wp_schedule_single_event(time(), 'insert_featured_image', array($post_ID, $post, $update));
+            } 
+        } else {
+            auto_featured_image($post_ID, $post, $update);
+        }
+    }  
+}
+
+// auto generate featured image when post is created/updated
+function auto_featured_image($post_ID, $post, $update)
+{
+    $translate = get_translate($post->post_title);
+    $keywords = get_word_anlytic($translate);
+    $final_image = '';
+    $search_words = '';
+    if (!empty($keywords)) {
+        /*
+            $keywords => {
+                'sun': 'NOUN',
+                'is': 'AUX',
+                'up': 'ADV',
+                'today': 'NOUN',
             }
-            if ($words == 'NOUN') {
-                $final_image= get_image_pixabay($key);
-                if (rand() % 2 == 0) {
-                    break;
-                }
+        */
+        // array $keywords group by it's value
+        $temp = [];
+        foreach ($keywords as $key => $value) {
+            if (!isset($temp[$value])) {
+                $temp[$value] = [];
             }
+            $temp[$value][] = $key;
+        }
+        $keywords = $temp;
+
+        // proper noun
+        if (!empty($keywords['PROPN'])){
+            $search_words = $keywords['PROPN'][rand() % count($keywords['PROPN'])];
         }
 
-        if (empty($final_image)) {
-            foreach ($keywords as $key=>$words) {
-                if ($words != 'PUNCT') { 
-                    $final_image = get_image_pixabay($key);
-                    break;
-                }
-            }
+        // noun
+        if (empty($search_words) && !empty($keywords['NOUN'])) {
+            $search_words = $keywords['NOUN'][rand() % count($keywords['NOUN'])];
         }
+
+        // rand
+        if (empty($search_words)) {
+            $rand_key = array_rand($keywords);
+            $search_words = $keywords[$rand_key][rand() % count($keywords[$rand_key])];
+        }
+
+        $final_image = get_image_pixabay($search_words);
 
         if (!empty($final_image)) {
             // final feautured image;
@@ -688,8 +712,9 @@ function auto_featured_image($post_ID, $post, $update)
             set_post_thumbnail( $post_ID, $attach_id );
         }
     }
+
 }
-add_action('wp_insert_post', 'auto_featured_image', 10, 3);
+add_action('wp_insert_post', 'my_insert_post', 10, 3);
 
 // disable wptexturize
 remove_filter('the_content', 'wptexturize');
