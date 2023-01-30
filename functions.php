@@ -616,7 +616,7 @@ function get_word_anlytic($text)
 
 function get_image_pixabay($word)
 {
-    $ret = file_get_contents("https://pixabay.com/api?key=".get_theme_mod('pixabay_apikey', '')."&q=".urlencode($word)."&image_type=photo&orientation=horizontal&safesearch=true&per_page=10");
+    $ret = file_get_contents("https://pixabay.com/api/?key=".get_theme_mod('pixabay_apikey', '')."&q=".urlencode($word)."&image_type=photo&orientation=horizontal&safesearch=true&per_page=10");
     $search_result = json_decode($ret, true);
     if (!empty($search_result) && count($search_result['hits']) > 0) {
         return $search_result['hits'][rand() % count($search_result['hits'])]['webformatURL'];
@@ -625,7 +625,33 @@ function get_image_pixabay($word)
     }
 }
 
-add_action('insert_featured_image','auto_featured_image', 10, 3);
+function do_cron()
+{
+    // This trick takes me 24 hours. sigh...
+    $microtime = sprintf( '%.22F', microtime( true ) );
+    $cron_url = site_url("wp-cron.php?doing_wp_cron={$microtime}");
+    set_transient('doing_cron', $microtime);
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $cron_url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "",
+        CURLOPT_NOSIGNAL => 1,
+        CURLOPT_TIMEOUT_MS => 100,
+    ]);
+
+    curl_exec($curl);
+    curl_close($curl);
+}
+
+add_action('wp_insert_post', 'my_insert_post', 10, 3);
 function my_insert_post($post_ID, $post, $update)
 {
     // async call to generate featured image
@@ -640,7 +666,8 @@ function my_insert_post($post_ID, $post, $update)
     if ($check === true) {
         if (defined('XMLRPC_REQUEST')) {
             if (false === wp_get_schedule('insert_featured_image', array($post_ID, $post, $update))) {
-                wp_schedule_single_event(time(), 'insert_featured_image', array($post_ID, $post, $update));
+                wp_schedule_single_event( time() - 1, 'insert_featured_image', array($post_ID, $post, $update) );
+                do_cron();
             } 
         } else {
             auto_featured_image($post_ID, $post, $update);
@@ -648,6 +675,7 @@ function my_insert_post($post_ID, $post, $update)
     }  
 }
 
+add_action('insert_featured_image','auto_featured_image', 10, 3);
 // auto generate featured image when post is created/updated
 function auto_featured_image($post_ID, $post, $update)
 {
@@ -709,13 +737,15 @@ function auto_featured_image($post_ID, $post, $update)
                 'post_status'    => 'inherit'
                 );
             $attach_id = wp_insert_attachment($attachment, $filename, $post_ID);
+            if ( ! function_exists( 'wp_crop_image' ) ) {
+                include_once( ABSPATH . 'wp-admin/includes/image.php' );
+            }
             wp_update_attachment_metadata( $attach_id, wp_generate_attachment_metadata( $attach_id, $filename ) );
             set_post_thumbnail( $post_ID, $attach_id );
         }
     }
 
 }
-add_action('wp_insert_post', 'my_insert_post', 10, 3);
 
 // disable wptexturize
 remove_filter('the_content', 'wptexturize');
