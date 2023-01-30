@@ -596,7 +596,7 @@ function get_word_anlytic($text)
         CURLOPT_POSTFIELDS => "text=".urlencode($text)."&lang=en",
         CURLOPT_HTTPHEADER => [
             "X-RapidAPI-Host: text-analysis10.p.rapidapi.com",
-            "X-RapidAPI-Key: a895888271msh523e523a1941d5ap1d422cjsn6e642a197918",
+            "X-RapidAPI-Key: ".get_theme_mod('rapidapi_translator', ''),
             "content-type: application/x-www-form-urlencoded"
         ],
     ]);
