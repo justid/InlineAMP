@@ -189,7 +189,7 @@ function my_customize_register($wp_customize) {
         'input_rapidapi_translator', 
         array(
             'label'    => __( 'RapidAPI','default'),
-            'description' => __( '<a href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/" target="_blank">Get Microsoft Translator API Key</a><br><a href="https://rapidapi.com/ai-box-ai-box-default/api/text-analysis10/" target="_blank">Get Text Analysis API Key</a>' ),
+            'description' => __( '<a href="https://rapidapi.com/gatzuma/api/deep-translate1" target="_blank">Get Deep Translate API Key</a><br><a href="https://rapidapi.com/ai-box-ai-box-default/api/text-analysis10/" target="_blank">Get Text Analysis API Key</a>' ),
             'section'  => 'auto_featured_image',
             'settings' => 'rapidapi_translator',
             'type'     => 'text',
@@ -546,23 +546,22 @@ function get_translate($text)
     $curl = curl_init();
 
     curl_setopt_array($curl, [
-        CURLOPT_URL => "https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=en&api-version=3.0&profanityAction=NoAction&textType=plain",
+        CURLOPT_URL => "https://deep-translate1.p.rapidapi.com/language/translate/v2",
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "[\r
-        {\r
-            \"Text\": \"".$text."\"\r
-        }\r
-    ]",
+        CURLOPT_POSTFIELDS => json_encode([
+            'q' => $text,
+            'source' => 'zh',
+            'target' => 'en'
+        ]),
         CURLOPT_HTTPHEADER => [
-            "X-RapidAPI-Host: microsoft-translator-text.p.rapidapi.com",
-            "X-RapidAPI-Key: ".get_theme_mod('rapidapi_translator', ''),
-            "content-type: application/json"
+            "Content-Type: application/json",
+            "x-rapidapi-host: deep-translate1.p.rapidapi.com",
+            "x-rapidapi-key: ".get_theme_mod('rapidapi_translator', '')
         ],
     ]);
 
@@ -574,7 +573,7 @@ function get_translate($text)
     if (!$err) {
         // get the translation success
         $response = json_decode($response, true);
-        return $response[0]['translations'][0]["text"];
+        return $response['data']['translations']["translatedText"];
     } else {
         return '';
     }
