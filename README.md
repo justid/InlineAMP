@@ -27,6 +27,10 @@
 
 ## Changelog
 
+> v1.2.4
+
+* fix auto featured image api error
+
 > v1.2.0
 
 * remove my profile widget
